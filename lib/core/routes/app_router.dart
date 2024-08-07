@@ -25,7 +25,10 @@ class AppRouter {
       case Routes.signUp:
         // Route for the login screen
         return BaseRoute(
-          page: const SignUpScreen(),
+          page: BlocProvider(
+            create: (context) => sl<AuthBloc>(),
+            child: const SignUpScreen(),
+          ),
         );
 
       case Routes.home:

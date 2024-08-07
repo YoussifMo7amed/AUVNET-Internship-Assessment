@@ -23,14 +23,14 @@ class LoginButton extends StatelessWidget {
         listener: (context, state) {
           if (state is SuccessState) {
             ShowToast.showToastSuccessTop(
-              context: context,
+           
               message: 'Logged in successfully',
             );
 
             context.pushNamedAndRemoveUntil(Routes.home);
           } else if (state is ErrorState) {
             ShowToast.showToastErrorTop(
-              context: context,
+           
               message: state.error,
             );
           }
