@@ -1,4 +1,3 @@
-
 import 'package:auvnet_store/core/common/animations/animate_do.dart';
 import 'package:auvnet_store/core/common/widgets/text_app.dart';
 import 'package:auvnet_store/core/extensions/context_extension.dart';
@@ -8,7 +7,6 @@ import 'package:auvnet_store/features/auth/presentation/widgets/auth_title_info.
 import 'package:auvnet_store/features/auth/presentation/widgets/dark_mode_button.dart';
 import 'package:auvnet_store/features/auth/presentation/widgets/sign_up/sign_up_button.dart';
 import 'package:auvnet_store/features/auth/presentation/widgets/sign_up/sign_up_text_form.dart';
-import 'package:auvnet_store/features/auth/presentation/widgets/sign_up/user_avatar_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -25,19 +23,14 @@ class SignUpBody extends StatelessWidget {
             //Dark mode and language
             const DarkModeButton(),
 
-            SizedBox(height: 30.h),
+            SizedBox(height: 20.h),
 
             // Welcome Info
-            AuthTitleInfo(
+            const AuthTitleInfo(
               title: 'Sign Up',
-              description:'Welcome, Please add your information',
+              description: 'Welcome, Please add your information',
             ),
-            SizedBox(height: 10.h),
-
-            //User Avatar image
-            const UserAvararImage(),
-
-            SizedBox(height: 20.h),
+            SizedBox(height: 30.h),
 
             // signup TextForm
             const SignUpTextForm(),

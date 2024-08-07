@@ -1,6 +1,8 @@
 import 'package:auvnet_store/core/service/networking/api_constants.dart';
 import 'package:auvnet_store/features/auth/data/models/login_request_body.dart';
 import 'package:auvnet_store/features/auth/data/models/login_response.dart';
+import 'package:auvnet_store/features/auth/data/models/sign_up_request_body.dart';
+import 'package:auvnet_store/features/auth/data/models/signup_response.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -13,5 +15,10 @@ abstract class ApiService {
   @POST(Apiconstants.login)
   Future<LoginResponse> login(
     @Body() LoginRequestBody body,
+  );
+
+  @POST(Apiconstants.signup)
+  Future<SignupResponse> signUp(
+    @Body() SignupRequestBody body,
   );
 }
