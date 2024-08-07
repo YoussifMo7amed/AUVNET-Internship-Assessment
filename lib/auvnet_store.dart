@@ -53,7 +53,10 @@ class AuvnetStoreApp extends StatelessWidget {
                       ),
                     ),
                     onGenerateRoute: AppRouter.generateroutes,
-                    initialRoute: Routes.login,
+                    initialRoute:
+                        SharedPref().getString(PrefKeys.accessToken) != null
+                            ? Routes.home
+                            : Routes.login,
                   );
                 }),
               ),

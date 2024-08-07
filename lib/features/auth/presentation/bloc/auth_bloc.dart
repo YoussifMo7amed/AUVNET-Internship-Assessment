@@ -9,10 +9,8 @@ import 'package:auvnet_store/features/auth/presentation/bloc/auth_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
-
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  AuthBloc(this._repo) : super(const Initial()) {
+ AuthBloc(this._repo) : super(const Initial()) {
     on<LoginEvent>(_login);
   }
 
@@ -37,7 +35,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     await result.when(
       success: (loginData) async {
         // user token
-        final token = loginData.data.login.accessToken ?? '';
+        final token = loginData.accessToken;
         // save token in shared preferences
         await SharedPref().setString(PrefKeys.accessToken, token);
         emit(const SuccessState());

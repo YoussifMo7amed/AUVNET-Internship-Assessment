@@ -1,38 +1,17 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'login_response.g.dart';
 
 @JsonSerializable()
 class LoginResponse {
-  LoginResponse(this.data);
-  factory LoginResponse.fromJson(Map<String, dynamic> json) =>
-      _$LoginResponseFromJson(json);
+  LoginResponse({required this.accessToken, required this.refreshToken});
 
-  LoginDataModel data;
-}
-
-@JsonSerializable()
-class LoginDataModel {
-  LoginDataModel(this.login);
-
-  factory LoginDataModel.fromJson(Map<String, dynamic> json) =>
-      _$LoginDataModelFromJson(json);
-
-  LoginModel login;
-}
-
-@JsonSerializable()
-class LoginModel {
-  LoginModel({
-    this.accessToken,
-    this.refreshToken,
-  });
-
-  factory LoginModel.fromJson(Map<String, dynamic> json) =>
-      _$LoginModelFromJson(json);
+  factory LoginResponse.fromJson(Map<String, dynamic> json) => _$LoginResponseFromJson(json);
 
   @JsonKey(name: 'access_token')
-  final String? accessToken;
+  final String accessToken;
   @JsonKey(name: 'refresh_token')
-  final String? refreshToken;
+  final String refreshToken;
+
+  Map<String, dynamic> toJson() => _$LoginResponseToJson(this);
 }
