@@ -1,11 +1,11 @@
 import 'package:auvnet_store/core/extensions/context_extension.dart';
-import 'package:auvnet_store/features/auth/refactors/auth_custom_painter.dart';
-import 'package:auvnet_store/features/auth/refactors/sign_up_body.dart';
+import 'package:auvnet_store/features/auth/presentation/refactors/auth_custom_painter.dart';
+import 'package:auvnet_store/features/auth/presentation/refactors/login_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class SignUpScreen extends StatelessWidget {
       ),
       body: const SafeArea(
         bottom: false,
-        child: SignUpBody(),
+        child: LoginBody(),
       ),
     );
   }
