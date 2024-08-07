@@ -1,3 +1,4 @@
+import 'package:auvnet_store/core/styles/images/app_images.dart';
 import 'package:flutter/material.dart';
 
 /// Custom ThemeExtension to handle app-specific assets for theming
@@ -40,13 +41,13 @@ class MyAssets extends ThemeExtension<MyAssets> {
 
   // Predefined assets for dark theme
   static const MyAssets dark = MyAssets(
-    bigNavBar: "AppImages.bigIconNavBarDark",
-    homeBg: "AppImages.homeBgDark",
+    bigNavBar: AppImages.bigIconNavBarDark,
+    homeBg: AppImages.homeBgDark,
   );
 
   // Predefined assets for light theme
   static const MyAssets light = MyAssets(
-    bigNavBar: "AppImages.bigIconNavBarLight",
-    homeBg: "AppImages.homeBgLight",
+    bigNavBar: AppImages.bigIconNavBarLight,
+    homeBg: AppImages.homeBgLight,
   );
 }
