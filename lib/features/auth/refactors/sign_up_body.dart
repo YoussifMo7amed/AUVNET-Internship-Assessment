@@ -1,3 +1,4 @@
+
 import 'package:auvnet_store/core/common/animations/animate_do.dart';
 import 'package:auvnet_store/core/common/widgets/text_app.dart';
 import 'package:auvnet_store/core/extensions/context_extension.dart';
@@ -5,13 +6,14 @@ import 'package:auvnet_store/core/routes/routers.dart';
 import 'package:auvnet_store/core/styles/fonts/font_wieght_helper.dart';
 import 'package:auvnet_store/features/auth/widgets/auth_title_info.dart';
 import 'package:auvnet_store/features/auth/widgets/dark_mode_button.dart';
-import 'package:auvnet_store/features/auth/widgets/login/login_button.dart';
-import 'package:auvnet_store/features/auth/widgets/login/login_text_form.dart';
+import 'package:auvnet_store/features/auth/widgets/sign_up/sign_up_button.dart';
+import 'package:auvnet_store/features/auth/widgets/sign_up/sign_up_text_form.dart';
+import 'package:auvnet_store/features/auth/widgets/sign_up/user_avatar_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class LoginBody extends StatelessWidget {
-  const LoginBody({super.key});
+class SignUpBody extends StatelessWidget {
+  const SignUpBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,39 +22,41 @@ class LoginBody extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            //Dark mode
+            //Dark mode and language
             const DarkModeButton(),
 
-            SizedBox(height: 50.h),
+            SizedBox(height: 30.h),
 
             // Welcome Info
-            const AuthTitleInfo(
-              title: 'Login',
-              description: 'Welcome, Please enter your email and get started.',
+            AuthTitleInfo(
+              title: 'Sign Up',
+              description:'Welcome, Please add your information',
             ),
+            SizedBox(height: 10.h),
 
-            SizedBox(height: 30.h),
+            //User Avatar image
+            const UserAvararImage(),
 
-            // login TextForm
-            const LoginTextForm(),
+            SizedBox(height: 20.h),
 
-            SizedBox(height: 30.h),
-            //LoginButton
-            const LoginButton(),
+            // signup TextForm
+            const SignUpTextForm(),
 
-            SizedBox(height: 30.h),
+            SizedBox(height: 20.h),
+            //signUpButton
+            const SignUpButton(),
 
-            // Go To Sign Up Screen
+            SizedBox(height: 20.h),
 
-            // Go To Sign Up Screen
+            // Go To Login Screen
             CustomFadeInDown(
               duration: 400,
               child: TextButton(
                 onPressed: () {
-                  context.pushReplacementNamed(Routes.signUp);
+                  context.pushReplacementNamed(Routes.login);
                 },
                 child: TextApp(
-                  text: 'create account',
+                  text: 'You have an account?',
                   theme: context.textStyle.copyWith(
                     fontSize: 16.sp,
                     fontWeight: FontWeightHelper.bold,
