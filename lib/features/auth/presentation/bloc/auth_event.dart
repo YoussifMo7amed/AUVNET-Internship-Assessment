@@ -20,3 +20,10 @@ class LoginEvent extends AuthEvent {
   @override
   List<Object?> get props => [];
 }
+
+class SignUpEvent extends AuthEvent {
+  const SignUpEvent();
+
+  @override
+  List<Object?> get props => [];
+}
