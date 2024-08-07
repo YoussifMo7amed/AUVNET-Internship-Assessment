@@ -1,8 +1,8 @@
 import 'package:auvnet_store/core/common/screens/under_build_screen.dart';
 import 'package:auvnet_store/core/routes/base_routes.dart';
 import 'package:auvnet_store/core/routes/routers.dart';
-import 'package:auvnet_store/features/auth/screens/login_screen.dart';
-import 'package:auvnet_store/features/auth/screens/sign_up_screen.dart';
+import 'package:auvnet_store/features/auth/presentation/screens/login_screen.dart';
+import 'package:auvnet_store/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 
 /// Handles route generation for the app
