@@ -23,7 +23,7 @@ ThemeData themeDark() {
 }
 
 /// Defines the light theme for the application
-ThemeData themelight() {
+ThemeData themeLight() {
   return ThemeData(
     scaffoldBackgroundColor: ColorsLight.mainColor,
     extensions: const <ThemeExtension<dynamic>>[
