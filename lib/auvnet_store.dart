@@ -1,5 +1,8 @@
 import 'package:auvnet_store/core/app/connectivity_controller.dart';
 import 'package:auvnet_store/core/common/screens/no_network_screen.dart';
+import 'package:auvnet_store/core/routes/app_router.dart';
+import 'package:auvnet_store/core/routes/routers.dart';
+import 'package:auvnet_store/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -18,10 +21,7 @@ class AuvnetStoreApp extends StatelessWidget {
               child: MaterialApp(
                 debugShowCheckedModeBanner: false,
                 title: 'Auvnet Store',
-                theme: ThemeData(
-                  colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-                  useMaterial3: true,
-                ),
+                theme: themeDark(),
                 builder: (context, widget) {
                   return Scaffold(
                     body: Builder(
@@ -37,6 +37,8 @@ class AuvnetStoreApp extends StatelessWidget {
                     title: const Text('Asroo Store'),
                   ),
                 ),
+                onGenerateRoute: AppRouter.generateroutes,
+                    initialRoute: Routes.login,
               ),
             );
           } else {
