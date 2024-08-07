@@ -5,7 +5,7 @@ import 'package:auvnet_store/core/routes/routers.dart';
 import 'package:auvnet_store/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:auvnet_store/features/auth/presentation/screens/login_screen.dart';
 import 'package:auvnet_store/features/auth/presentation/screens/sign_up_screen.dart';
-import 'package:auvnet_store/features/home/home_screen.dart';
+import 'package:auvnet_store/features/main/screen/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -34,7 +34,7 @@ class AppRouter {
       case Routes.home:
         // Route for the Home screen
         return BaseRoute(
-          page: const HomeScreen(),
+          page: const MainScreen(),
         );
 
       default:
