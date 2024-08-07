@@ -30,22 +30,93 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  cupertino_icons: ^1.0.2
+    # Provides Cupertino-style icons for iOS-like app designs
 
+  # Core
+  connectivity_plus: ^5.0.2
+    # Provides information about network connectivity status
+  flutter_screenutil: ^5.9.0
+    # Adapts screen size and resolution for responsive design
+  flutter_native_splash: ^2.3.10
+    # Adds a native splash screen for the app, improving launch experience
+  get_it: ^7.6.7
+    # Service locator for dependency injection in Flutter
 
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.6
+  # UI
+  animate_do: ^3.3.2
+    # Adds animations for Flutter widgets with minimal code
+  fluttertoast: ^8.2.4
+    # Displays toast messages (short messages) on the screen
+  shimmer: ^3.0.0
+    # Adds shimmering effects to widgets, useful for loading states
+  cached_network_image: ^3.3.1
+    # Caches network images for efficient loading
+  flutter_svg: ^2.0.9
+    # Provides support for SVG (Scalable Vector Graphics) images
+  flutter_animate: ^4.5.0
+    # Adds advanced animation capabilities to Flutter apps
+  carousel_slider: ^4.2.1
+    # Creates a carousel (image slider) for displaying a series of widgets
+
+  # Bloc
+  flutter_bloc: ^8.1.3
+    # Provides the BLoC (Business Logic Component) pattern for state management
+  equatable: ^2.0.5
+    # Provides value equality for Dart objects, useful for comparing states
+  bloc_concurrency: ^0.2.4
+    # Enhances BLoC to handle concurrent events more efficiently
+
+  # Shared Preferences
+  shared_preferences: ^2.2.2
+    # Provides a way to persist simple data (e.g., settings) across app launches
+
+  # Freezed
+  freezed_annotation: ^2.4.1
+    # Provides annotations for code generation with `freezed` for immutable data classes
+
+  # Image Picker
+  image_picker: ^1.0.7
+    # Allows users to pick images from the gallery or take photos using the camera
+
+  # API
+  dio: ^5.4.0
+    # A powerful HTTP client for making network requests
+  pretty_dio_logger: ^1.3.1
+    # Provides a logger for Dio requests, helpful for debugging network calls
+  retrofit: ^4.0.3
+    # Creates type-safe API calls using annotations for generating network code
+
+  # Local Database (Hive)
+  hive: ^2.2.3
+    # Lightweight NoSQL database for local data storage
+  hive_flutter: ^1.1.0
+    # Integration of Hive with Flutter, including widgets to listen to Hive changes
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
-  flutter_lints: ^3.0.0
+    # Provides testing support for Flutter applications
+  flutter_launcher_icons: ^0.13.1
+    # Generates launcher icons for both Android and iOS
+  flutter_lints: ^2.0.0
+    # Provides linting rules for Flutter projects
+  build_runner: ^2.4.8
+    # Build runner for code generation
+  freezed: ^2.4.6
+    # Code generation for immutable data classes
+  retrofit_generator: ^8.0.6
+    # Code generation for Retrofit
+  json_serializable: ^6.7.1
+    # JSON serialization support
+  hive_generator: ^2.0.1
+    # Code generation for Hive type adapters
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/icons/app_icon.jpg"
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "assets/images/icons/play_store_512.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -59,8 +130,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/images/core/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
