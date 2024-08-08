@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 
 class AppInfo {
   const AppInfo._();
+  
+  static get PackageInfo => null;
 
   static Future<String> getAppVersion(BuildContext context) async {
     var buildNumberText = '';
