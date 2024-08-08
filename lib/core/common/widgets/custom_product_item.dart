@@ -2,17 +2,19 @@ import 'package:auvnet_store/core/common/widgets/custom_container_linear.dart';
 import 'package:auvnet_store/core/common/widgets/text_app.dart';
 import 'package:auvnet_store/core/extensions/context_extension.dart';
 import 'package:auvnet_store/core/extensions/string_exetension.dart';
+import 'package:auvnet_store/core/routes/routers.dart';
 import 'package:auvnet_store/core/styles/fonts/font_wieght_helper.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ProductItem extends StatelessWidget {
-  const ProductItem({
+class CustomProductItem extends StatelessWidget {
+  const CustomProductItem({
     required this.imageUrl,
     required this.title,
     required this.categoryName,
     required this.price,
+    required this.productId,
     super.key,
   });
 
@@ -20,11 +22,14 @@ class ProductItem extends StatelessWidget {
   final String title;
   final String categoryName;
   final double price;
+  final int productId;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        context.pushName(Routes.productDetails, arguments: productId);
+      },
       child: CustomContainerLinear(
         height: 250.h,
         width: 165.w,

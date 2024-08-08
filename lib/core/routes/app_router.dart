@@ -7,6 +7,7 @@ import 'package:auvnet_store/features/auth/presentation/screens/login_screen.dar
 import 'package:auvnet_store/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:auvnet_store/features/main/presentation/cubit/cubit/main_cubit.dart';
 import 'package:auvnet_store/features/main/presentation/screen/main_screen.dart';
+import 'package:auvnet_store/features/product_details/presentation/product_details_screen.dart';
 import 'package:auvnet_store/features/profile/presentation/bloc/bloc/profile_bloc.dart';
 import 'package:auvnet_store/features/profile/presentation/bloc/bloc/profile_event.dart';
 import 'package:flutter/material.dart';
@@ -47,6 +48,12 @@ class AppRouter {
           page: BlocProvider(
             create: (context) => sl<MainCubit>(),
             child: const MainScreen(),
+          ),
+        );
+          case Routes.productDetails:
+        return BaseRoute(
+          page: ProductDetailsScreen(
+            productId: args! as int,
           ),
         );
 
