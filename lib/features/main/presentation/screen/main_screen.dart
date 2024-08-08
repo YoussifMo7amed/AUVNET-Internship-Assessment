@@ -7,7 +7,7 @@ import 'package:auvnet_store/features/home/home_screen.dart';
 import 'package:auvnet_store/features/main/presentation/cubit/cubit/main_cubit.dart';
 import 'package:auvnet_store/features/main/presentation/refactors/bottom_nav_bar.dart';
 import 'package:auvnet_store/features/main/presentation/refactors/main_app_bar.dart';
-import 'package:auvnet_store/features/profile/profile_screen.dart';
+import 'package:auvnet_store/features/profile/presentation/screen/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
