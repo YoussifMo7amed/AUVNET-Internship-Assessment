@@ -46,9 +46,8 @@ class DioFactory {
           return handler.next(options);
         },
         onError: (error, handler) async {
-          // added or for status code 401 because it will not work on refresh token from api
-          if (error.response?.statusCode == 400 ||
-              error.response?.statusCode == 401) {
+          if (error.response?.statusCode == 400 
+             ) {
             await AppLogout().logout();
           }
         },

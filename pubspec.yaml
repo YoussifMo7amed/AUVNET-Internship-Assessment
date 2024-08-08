@@ -58,6 +58,9 @@ dependencies:
     # Adds advanced animation capabilities to Flutter apps
   carousel_slider: ^4.2.1
     # Creates a carousel (image slider) for displaying a series of widgets
+  package_info_plus: ^5.0.1
+  #flutter plugin for querying information about the application package.
+
 
   # Bloc
   flutter_bloc: ^8.1.3
