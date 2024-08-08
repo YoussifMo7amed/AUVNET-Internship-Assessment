@@ -5,11 +5,12 @@ class AppInfo {
   const AppInfo._();
 
   static Future<String> getAppVersion(BuildContext context) async {
-    var buildNumberText = '';
-
-    final packgeInfo = await PackageInfo.fromPlatform();
-    buildNumberText = '${packgeInfo.version} (${packgeInfo.buildNumber})';
-
-    return buildNumberText;
+    try {
+      final packageInfo = await PackageInfo.fromPlatform();
+      return '${packageInfo.version} (${packageInfo.buildNumber})';
+    } catch (e) {
+      // Handle the exception and return a default message
+      return '1.0.0(1)';
+    }
   }
 }

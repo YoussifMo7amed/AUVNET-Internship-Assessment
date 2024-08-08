@@ -3,7 +3,7 @@ import 'package:auvnet_store/core/enums/nav_bar_enum.dart';
 import 'package:auvnet_store/core/extensions/context_extension.dart';
 import 'package:auvnet_store/features/categories/categories_screen.dart';
 import 'package:auvnet_store/features/favorites/favorites_screen.dart';
-import 'package:auvnet_store/features/home/home_screen.dart';
+import 'package:auvnet_store/features/home/presentation/screen/home_screen.dart';
 import 'package:auvnet_store/features/main/presentation/cubit/cubit/main_cubit.dart';
 import 'package:auvnet_store/features/main/presentation/refactors/bottom_nav_bar.dart';
 import 'package:auvnet_store/features/main/presentation/refactors/main_app_bar.dart';

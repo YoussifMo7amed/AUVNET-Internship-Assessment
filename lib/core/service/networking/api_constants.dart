@@ -3,5 +3,7 @@ class Apiconstants {
   static const String login = "auth/login";
   static const String signup = "users/";
   static const String profile = "auth/profile";
+  static const String banners = "products/";
+  static const String category = "categories/";
   
 }
