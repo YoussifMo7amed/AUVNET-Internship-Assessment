@@ -27,7 +27,7 @@ class LoginButton extends StatelessWidget {
               message: 'Logged in successfully',
             );
 
-            context.pushNamedAndRemoveUntil(Routes.home);
+            context.pushNamedAndRemoveUntil(Routes.mainScreen);
           } else if (state is ErrorState) {
             ShowToast.showToastErrorTop(
            

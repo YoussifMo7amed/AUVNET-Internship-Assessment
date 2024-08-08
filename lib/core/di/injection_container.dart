@@ -3,6 +3,7 @@ import 'package:auvnet_store/core/service/networking/api_service.dart';
 import 'package:auvnet_store/core/service/networking/dio_factory.dart';
 import 'package:auvnet_store/features/auth/data/repos/auth_repo.dart';
 import 'package:auvnet_store/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:auvnet_store/features/main/presentation/cubit/cubit/main_cubit.dart';
 import 'package:get_it/get_it.dart';
 
 final sl = GetIt.instance;
@@ -10,6 +11,7 @@ final sl = GetIt.instance;
 Future<void> setupInjector() async {
   await _initCore();
   await _initAuth();
+  await _initMain();
 }
 
 Future<void> _initCore() async {
@@ -24,4 +26,7 @@ Future<void> _initAuth() async {
   sl
     ..registerFactory(() => AuthBloc(sl()))
     ..registerLazySingleton(() => AuthRepos(sl()));
+}
+Future<void> _initMain() async {
+  sl.registerFactory(MainCubit.new);
 }
