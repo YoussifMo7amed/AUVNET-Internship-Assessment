@@ -6,6 +6,7 @@ import 'package:auvnet_store/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:auvnet_store/features/main/presentation/cubit/cubit/main_cubit.dart';
 import 'package:auvnet_store/features/profile/data/repo/profile_repo.dart';
 import 'package:auvnet_store/features/profile/presentation/bloc/bloc/profile_bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
 final sl = GetIt.instance;
@@ -19,10 +20,11 @@ Future<void> setupInjector() async {
 
 Future<void> _initCore() async {
   final dio = DioFactory.getDio();
-
+  final navigatorKey = GlobalKey<NavigatorState>();
   sl
     ..registerFactory(AppCubit.new)
-    ..registerLazySingleton<ApiService>(() => ApiService(dio));
+    ..registerLazySingleton<ApiService>(() => ApiService(dio))
+    ..registerSingleton<GlobalKey<NavigatorState>>(navigatorKey);
 }
 
 Future<void> _initAuth() async {

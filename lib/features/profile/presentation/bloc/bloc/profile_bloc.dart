@@ -12,19 +12,26 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   }
   final ProfileRepo _repo;
 
-  FutureOr<void> _getUserInfo(
+  Future<void> _getUserInfo(
     GetUserInfoEvent event,
     Emitter<ProfileState> emit,
   ) async {
     emit(const LoadingState());
-    final token =  SharedPref().getString(PrefKeys.accessToken);
-    final result = await _repo.getUserProfile(token!);
+    final token = SharedPref().getString(PrefKeys.accessToken);
+    if (token == null) {
+      emit(const ErrorState(error: 'Token is null'));
+      return;
+    }
+    final result = await _repo.getUserProfile(token);
 
-    result.when(
-      success: (response) {
+    await result.when(
+      success: (response) async {
+        await SharedPref().setInt(PrefKeys.userId, response.userId ?? 0);
+        if (emit.isDone) return;
         emit(SuccessState(response: response));
       },
       failure: (error) {
+        if (emit.isDone) return;
         emit(ErrorState(error: error));
       },
     );
