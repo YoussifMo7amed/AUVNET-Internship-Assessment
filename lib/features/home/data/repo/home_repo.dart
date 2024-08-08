@@ -8,13 +8,13 @@ class HomeRepo {
 
   final ApiService _apiService;
 
-  // Get Banners
-  Future<ApiResult<BannersResponse>> getBanners() async {
+  // Get Banners // Get Banners
+  Future<ApiResult<List<BannersResponse>>> getBanners() async {
     try {
-      final response = await _apiService.banners();
+      final response = await _apiService.banners(); // This should return List<BannersResponse>
       return ApiResult.success(response);
-    } catch (e) {
-      return const ApiResult.failure(errorMessage);
+    } catch (error) {
+      return ApiResult.failure(error.toString());
     }
   }
 }

@@ -28,5 +28,5 @@ abstract class ApiService {
   Future<ProfileResponse> profile();
 
   @GET(Apiconstants.banners)
-  Future<BannersResponse> banners();
+  Future<List<BannersResponse>> banners();
 }
