@@ -11,6 +11,7 @@ class LoadingState extends GetBannersState {}
 
 class SuccessState extends GetBannersState {
   final List<String> imageBannerList;
+  
 
   const SuccessState({required this.imageBannerList});
 

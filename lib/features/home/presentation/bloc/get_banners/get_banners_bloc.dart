@@ -1,5 +1,3 @@
-
-
 import 'dart:async';
 import 'package:auvnet_store/core/utils/app_strings.dart';
 import 'package:auvnet_store/features/home/data/repo/home_repo.dart';
@@ -20,13 +18,14 @@ class GetBannersBloc extends Bloc<GetBannersEvent, GetBannersState> {
   ) async {
     emit(LoadingState());
 
-    final result = await _repo.getBanners();
+    final result = await _repo.getProducts();
 
     result.when(
       success: (data) {
-        
-        final filteredBanners = data.where((banner) => banner.title == searchBannersKeyWord).toList();
-        
+        final filteredBanners = data
+            .where((banner) => banner.title == searchBannersKeyWord)
+            .toList();
+
         if (filteredBanners.isEmpty) {
           emit(EmptyState());
         } else {

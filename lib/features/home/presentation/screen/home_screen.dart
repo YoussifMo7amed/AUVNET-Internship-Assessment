@@ -5,6 +5,8 @@ import 'package:auvnet_store/features/home/presentation/bloc/get_banners/get_ban
 import 'package:auvnet_store/features/home/presentation/bloc/get_banners/get_banners_event.dart';
 import 'package:auvnet_store/features/home/presentation/bloc/get_categories/get_categories_bloc.dart';
 import 'package:auvnet_store/features/home/presentation/bloc/get_categories/get_categories_event.dart';
+import 'package:auvnet_store/features/home/presentation/bloc/get_products/get_products_bloc.dart';
+import 'package:auvnet_store/features/home/presentation/bloc/get_products/get_products_event.dart';
 import 'package:auvnet_store/features/home/presentation/refactors/home_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -48,6 +50,12 @@ class _HomeScreenState extends State<HomeScreen> {
           create: (context) => sl<GetCategoriesBloc>()
             ..add(
               FetchCategoriesEvent(),
+            ),
+        ),
+        BlocProvider(
+          create: (context) => sl<GetProductsBloc>()
+            ..add(
+              FetchProductsEvent(),
             ),
         ),
       ],

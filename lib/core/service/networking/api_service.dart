@@ -3,7 +3,7 @@ import 'package:auvnet_store/features/auth/data/models/login_request_body.dart';
 import 'package:auvnet_store/features/auth/data/models/login_response.dart';
 import 'package:auvnet_store/features/auth/data/models/sign_up_request_body.dart';
 import 'package:auvnet_store/features/auth/data/models/signup_response.dart';
-import 'package:auvnet_store/features/home/data/models/banners_response.dart';
+import 'package:auvnet_store/features/home/data/models/products_response.dart';
 import 'package:auvnet_store/features/home/data/models/categories_response.dart';
 import 'package:auvnet_store/features/profile/data/models/profile_responce.dart';
 import 'package:dio/dio.dart';
@@ -29,8 +29,8 @@ abstract class ApiService {
   Future<ProfileResponse> profile();
 
   @GET(Apiconstants.banners)
-  Future<List<BannersResponse>> banners();
+  Future<List<ProductResponse>> products();
 
-   @GET(Apiconstants.category)
-  Future<List<CategoryResponse>> categories(); 
+  @GET(Apiconstants.category)
+  Future<List<CategoryResponse>> categories();
 }

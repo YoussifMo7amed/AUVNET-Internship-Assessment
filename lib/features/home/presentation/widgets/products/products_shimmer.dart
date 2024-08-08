@@ -1,15 +1,9 @@
-import 'package:auvnet_store/features/home/data/models/products_response.dart';
-import 'package:auvnet_store/features/home/presentation/widgets/products/product_item.dart';
+import 'package:auvnet_store/core/common/loading/loading_shimmer.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ProductsList extends StatelessWidget {
- const ProductsList({
-    required this.productList,
-    super.key,
-  });
-
-  final List<ProductResponse> productList;
+class ProductsShimmer extends StatelessWidget {
+  const ProductsShimmer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,11 +21,9 @@ class ProductsList extends StatelessWidget {
           childAspectRatio: 165 / 250,
         ),
         itemBuilder: (context, index) {
-          return  ProductItem(
-              price: productList[index].price ?? 0,
-            categoryName: productList[index].category!.name ?? '',
-            title: productList[index].title ?? '',
-            imageUrl: productList[index].images!.first,
+          return LoadingShimmer(
+            height: 250.h,
+            width: 165.w,
           );
         },
       ),
