@@ -3,6 +3,7 @@ import 'package:auvnet_store/features/home/presentation/bloc/get_banners/get_ban
 import 'package:auvnet_store/features/home/presentation/bloc/get_banners/get_banners_event.dart';
 import 'package:auvnet_store/features/home/presentation/bloc/get_banners/get_banners_state.dart';
 import 'package:auvnet_store/features/home/presentation/widgets/banners/banner_sliders.dart';
+import 'package:auvnet_store/features/home/presentation/widgets/categories/categories_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -48,6 +49,11 @@ class HomeBody extends StatelessWidget {
           ),
 
           //Caegories
+
+          SliverToBoxAdapter(
+            child: CategoriesShimmer(),
+          ),
+
           //Products
         ],
       ),
