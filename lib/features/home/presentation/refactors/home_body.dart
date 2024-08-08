@@ -1,5 +1,7 @@
 import 'package:auvnet_store/core/common/loading/empty_page.dart';
 import 'package:auvnet_store/core/common/loading/loading_shimmer.dart';
+import 'package:auvnet_store/core/common/widgets/custom_button.dart';
+import 'package:auvnet_store/core/extensions/context_extension.dart';
 import 'package:auvnet_store/features/home/presentation/bloc/get_banners/get_banners_bloc.dart';
 import 'package:auvnet_store/features/home/presentation/bloc/get_banners/get_banners_event.dart';
 import 'package:auvnet_store/features/home/presentation/bloc/get_banners/get_banners_state.dart';
@@ -9,6 +11,7 @@ import 'package:auvnet_store/features/home/presentation/bloc/get_categories/get_
 import 'package:auvnet_store/features/home/presentation/widgets/banners/banner_sliders.dart';
 import 'package:auvnet_store/features/home/presentation/widgets/categories/categories_list.dart';
 import 'package:auvnet_store/features/home/presentation/widgets/categories/categories_shimmer.dart';
+import 'package:auvnet_store/features/home/presentation/widgets/products/products_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -75,7 +78,19 @@ class HomeBody extends StatelessWidget {
             ),
           ),
 
-          //Products
+          //Products          //Products
+
+          SliverToBoxAdapter(
+            child: ProductsList(),
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(height: 20.h),
+          ),
+
+        
+          SliverToBoxAdapter(
+            child: SizedBox(height: 60.h),
+          ),
         ],
       ),
     );
