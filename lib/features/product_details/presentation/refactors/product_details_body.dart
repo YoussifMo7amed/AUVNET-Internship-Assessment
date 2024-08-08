@@ -2,12 +2,15 @@ import 'package:auvnet_store/core/common/widgets/custom_favorite_button.dart';
 import 'package:auvnet_store/core/common/widgets/text_app.dart';
 import 'package:auvnet_store/core/extensions/context_extension.dart';
 import 'package:auvnet_store/core/styles/fonts/font_wieght_helper.dart';
+import 'package:auvnet_store/features/product_details/data/models/product_response.dart';
 import 'package:auvnet_store/features/product_details/presentation/widgets/product_details_image_slider.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProductDetailsBody extends StatelessWidget {
-  const ProductDetailsBody({super.key});
+  const ProductDetailsBody({required this.productDetailsResponse, super.key});
+
+  final ProductDetailsResponse productDetailsResponse;
 
   @override
   Widget build(BuildContext context) {
@@ -27,13 +30,14 @@ class ProductDetailsBody extends StatelessWidget {
             ),
             SizedBox(height: 10.h),
             //Image
-            // ignore: prefer_const_constructors
-            ProductDetailsImageSlider(),
+            ProductDetailsImageSlider(
+              imageList: productDetailsResponse.images,
+            ),
 
             SizedBox(height: 30.h),
             //Title
             TextApp(
-              text: 'Title',
+              text: productDetailsResponse.title ?? '',
               theme: context.textStyle.copyWith(
                 fontSize: 16.sp,
                 fontWeight: FontWeightHelper.bold,
@@ -42,7 +46,7 @@ class ProductDetailsBody extends StatelessWidget {
             SizedBox(height: 15.h),
             //description
             TextApp(
-              text: 'description',
+              text: productDetailsResponse.description ?? '',
               theme: context.textStyle.copyWith(
                 fontSize: 16.sp,
                 fontWeight: FontWeightHelper.regular,
