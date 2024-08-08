@@ -1,4 +1,5 @@
 import 'package:auvnet_store/core/common/widgets/custom_container_linear.dart';
+import 'package:auvnet_store/core/common/widgets/custom_favorite_button.dart';
 import 'package:auvnet_store/core/common/widgets/text_app.dart';
 import 'package:auvnet_store/core/extensions/context_extension.dart';
 import 'package:auvnet_store/core/extensions/string_exetension.dart';
@@ -38,25 +39,11 @@ class CustomProductItem extends StatelessWidget {
           children: [
             //Buttons
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                //Share Button
-                IconButton(
-                  onPressed: () {},
-                  padding: EdgeInsets.zero,
-                  icon: Icon(
-                    Icons.share,
-                    color: context.color.textColor,
-                  ),
-                ),
                 //Favorite Button
-                IconButton(
-                  onPressed: () {},
-                  padding: EdgeInsets.zero,
-                  icon: Icon(
-                    Icons.favorite_outline,
-                    color: context.color.textColor,
-                  ),
+                CustomFavoriteButton(
+                  size: 30.h,
                 ),
               ],
             ),
