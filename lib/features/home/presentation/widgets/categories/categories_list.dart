@@ -1,9 +1,11 @@
+import 'package:auvnet_store/features/home/data/models/categories_response.dart';
 import 'package:auvnet_store/features/home/presentation/widgets/categories/catgeory_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CategoriesList extends StatelessWidget {
-  const CategoriesList({super.key});
+  const CategoriesList({super.key, required this.categoreisList});
+final List<CategoryResponse> categoreisList;
 
   @override
   Widget build(BuildContext context) {
@@ -13,12 +15,11 @@ class CategoriesList extends StatelessWidget {
         height: 125.h,
         child: ListView.separated(
           scrollDirection: Axis.horizontal,
-          itemCount: 7,
+          itemCount: categoreisList.length,
           itemBuilder: (context, index) {
             return CategoryItem(
-              image:
-                  'https://images.unsplash.com/photo-1682687220777-2c60708d6889?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-              title: 'book',
+              image: categoreisList[index].image ?? '',
+              title: categoreisList[index].name ?? '',
             );
           },
           separatorBuilder: (context, index) => SizedBox(width: 15.w),

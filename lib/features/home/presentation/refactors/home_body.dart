@@ -1,8 +1,13 @@
+import 'package:auvnet_store/core/common/loading/empty_page.dart';
 import 'package:auvnet_store/core/common/loading/loading_shimmer.dart';
 import 'package:auvnet_store/features/home/presentation/bloc/get_banners/get_banners_bloc.dart';
 import 'package:auvnet_store/features/home/presentation/bloc/get_banners/get_banners_event.dart';
 import 'package:auvnet_store/features/home/presentation/bloc/get_banners/get_banners_state.dart';
+import 'package:auvnet_store/features/home/presentation/bloc/get_categories/get_categories_bloc.dart';
+import 'package:auvnet_store/features/home/presentation/bloc/get_categories/get_categories_event.dart';
+import 'package:auvnet_store/features/home/presentation/bloc/get_categories/get_categories_state.dart';
 import 'package:auvnet_store/features/home/presentation/widgets/banners/banner_sliders.dart';
+import 'package:auvnet_store/features/home/presentation/widgets/categories/categories_list.dart';
 import 'package:auvnet_store/features/home/presentation/widgets/categories/categories_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,6 +23,7 @@ class HomeBody extends StatelessWidget {
     return RefreshIndicator(
       onRefresh: () async {
         context.read<GetBannersBloc>().add(FetchBannersEvent());
+        context.read<GetCategoriesBloc>().add(FetchCategoriesEvent());
       },
       child: CustomScrollView(
         controller: scrollCOntroller,
@@ -37,8 +43,8 @@ class HomeBody extends StatelessWidget {
                   );
                 } else if (state is SuccessState) {
                   return BannerSliders(
-                      bannersList: state.imageBannerList,
-                      );
+                    bannersList: state.imageBannerList,
+                  );
                 } else if (state is ErrorState) {
                   return Text(state.error);
                 } else {
@@ -51,7 +57,22 @@ class HomeBody extends StatelessWidget {
           //Caegories
 
           SliverToBoxAdapter(
-            child: CategoriesShimmer(),
+            child: BlocBuilder<GetCategoriesBloc, GetCategoriesState>(
+              builder: (context, state) {
+                if (state is CategoriesLoadingState) {
+                  return const CategoriesShimmer();
+                }else if (state is CategoriesSuccessState) {
+                   return CategoriesList(
+                      categoreisList: state.response,
+                    );
+                }else if (state is CategoriesErrorState) {
+                  return Text(state.error);
+                }else{
+                  return const EmptyPage();
+                }
+               
+              },
+            ),
           ),
 
           //Products

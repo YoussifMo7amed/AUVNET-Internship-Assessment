@@ -2,6 +2,7 @@ import 'package:auvnet_store/core/service/networking/api_result.dart';
 import 'package:auvnet_store/core/service/networking/api_service.dart';
 import 'package:auvnet_store/core/utils/app_strings.dart';
 import 'package:auvnet_store/features/home/data/models/banners_response.dart';
+import 'package:auvnet_store/features/home/data/models/categories_response.dart';
 
 class HomeRepo {
   HomeRepo(this._apiService);
@@ -17,4 +18,19 @@ class HomeRepo {
       return ApiResult.failure(error.toString());
     }
   }
+
+ // Get All Categories
+  Future<ApiResult<List<CategoryResponse>>> getAllCategories() async {
+    try {
+      final response = await _apiService.categories();
+      return ApiResult.success(response);
+    } catch (e) {
+      return const ApiResult.failure(errorMessage);
+    }
+  }
+
+
+
+
+
 }

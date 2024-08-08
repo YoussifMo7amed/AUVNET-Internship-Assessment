@@ -3,6 +3,8 @@ import 'package:auvnet_store/core/di/injection_container.dart';
 import 'package:auvnet_store/core/extensions/context_extension.dart';
 import 'package:auvnet_store/features/home/presentation/bloc/get_banners/get_banners_bloc.dart';
 import 'package:auvnet_store/features/home/presentation/bloc/get_banners/get_banners_event.dart';
+import 'package:auvnet_store/features/home/presentation/bloc/get_categories/get_categories_bloc.dart';
+import 'package:auvnet_store/features/home/presentation/bloc/get_categories/get_categories_event.dart';
 import 'package:auvnet_store/features/home/presentation/refactors/home_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -40,6 +42,12 @@ class _HomeScreenState extends State<HomeScreen> {
           create: (context) => sl<GetBannersBloc>()
             ..add(
                FetchBannersEvent(),
+            ),
+        ),
+         BlocProvider(
+          create: (context) => sl<GetCategoriesBloc>()
+            ..add(
+              FetchCategoriesEvent(),
             ),
         ),
       ],
