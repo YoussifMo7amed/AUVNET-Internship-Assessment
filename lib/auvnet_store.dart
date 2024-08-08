@@ -52,6 +52,7 @@ class AuvnetStoreApp extends StatelessWidget {
                         title: const Text('Asroo Store'),
                       ),
                     ),
+                    navigatorKey: sl<GlobalKey<NavigatorState>>(),
                     onGenerateRoute: AppRouter.generateroutes,
                     initialRoute:
                         SharedPref().getString(PrefKeys.accessToken) != null

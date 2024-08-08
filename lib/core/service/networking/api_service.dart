@@ -3,6 +3,7 @@ import 'package:auvnet_store/features/auth/data/models/login_request_body.dart';
 import 'package:auvnet_store/features/auth/data/models/login_response.dart';
 import 'package:auvnet_store/features/auth/data/models/sign_up_request_body.dart';
 import 'package:auvnet_store/features/auth/data/models/signup_response.dart';
+import 'package:auvnet_store/features/profile/data/models/profile_responce.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -21,4 +22,7 @@ abstract class ApiService {
   Future<SignupResponse> signUp(
     @Body() SignupRequestBody body,
   );
+
+  @GET(Apiconstants.profile)
+    Future<ProfileResponse> profile();
 }

@@ -7,6 +7,8 @@ import 'package:auvnet_store/features/auth/presentation/screens/login_screen.dar
 import 'package:auvnet_store/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:auvnet_store/features/main/presentation/cubit/cubit/main_cubit.dart';
 import 'package:auvnet_store/features/main/presentation/screen/main_screen.dart';
+import 'package:auvnet_store/features/profile/presentation/bloc/bloc/profile_bloc.dart';
+import 'package:auvnet_store/features/profile/presentation/bloc/bloc/profile_event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,10 +28,18 @@ class AppRouter {
       case Routes.signUp:
         // Route for the login screen
         return BaseRoute(
-          page: BlocProvider(
-            create: (context) => sl<AuthBloc>(),
-            child: const SignUpScreen(),
-          ),
+          page: MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => sl<AuthBloc>(),
+              ),
+              BlocProvider(
+                create: (context) => sl<ProfileBloc>()..add(
+                  const GetUserInfoEvent(),
+                ),
+              ),
+            ],
+            child: const SignUpScreen()),
         );
 
        case Routes.mainScreen:
