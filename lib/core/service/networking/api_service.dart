@@ -5,6 +5,8 @@ import 'package:auvnet_store/features/auth/data/models/sign_up_request_body.dart
 import 'package:auvnet_store/features/auth/data/models/signup_response.dart';
 import 'package:auvnet_store/features/home/data/models/products_response.dart';
 import 'package:auvnet_store/features/home/data/models/categories_response.dart';
+import 'package:auvnet_store/features/product_details/data/models/product_response.dart';
+import 'package:auvnet_store/features/product_details/presentation/refactors/product_details_body.dart';
 import 'package:auvnet_store/features/profile/data/models/profile_responce.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
@@ -33,4 +35,7 @@ abstract class ApiService {
 
   @GET(Apiconstants.category)
   Future<List<CategoryResponse>> categories();
+
+    @GET("${Apiconstants.product}{id}")
+  Future<ProductDetailsResponse> productDetails(@Path("id") int productId);
 }

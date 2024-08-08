@@ -5,5 +5,6 @@ class Apiconstants {
   static const String profile = "auth/profile";
   static const String banners = "products/";
   static const String category = "categories/";
+  static const String product = "products/";
   
 }
