@@ -4,7 +4,6 @@ class AppImages {
   static const pageUnderBuild = 'assets/images/core/page_under_build.jpg';
   static const emptyScreen = 'assets/images/core/empty_screen.png';
 
-  
   // Customer
   static const userAvatar = 'assets/images/customer/user.png';
   static const bigIconNavBarDark =
@@ -28,4 +27,5 @@ class AppImages {
   static const logout = 'assets/svg/logout.svg';
   static const backButton = 'assets/svg/arrow_back.svg';
   static const notification = 'assets/svg/notification_icon.svg';
+  static const orderHistory = 'assets/svg/order-history.svg';
 }
