@@ -1,10 +1,7 @@
-import 'dart:ui';
-
 import 'package:auvnet_store/core/service/shared_pref/pref_keys.dart';
 import 'package:auvnet_store/core/service/shared_pref/shared_pref.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 part 'app_state.dart';
 part 'app_cubit.freezed.dart';
 
