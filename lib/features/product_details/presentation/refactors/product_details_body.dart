@@ -2,6 +2,7 @@ import 'package:auvnet_store/core/common/widgets/custom_add_to_cart_button.dart'
 import 'package:auvnet_store/core/common/widgets/text_app.dart';
 import 'package:auvnet_store/core/extensions/context_extension.dart';
 import 'package:auvnet_store/core/styles/fonts/font_wieght_helper.dart';
+import 'package:auvnet_store/core/toast/show_toast.dart';
 import 'package:auvnet_store/features/cart/presentation/cubit/add_to_cart/cart_cubit.dart';
 import 'package:auvnet_store/features/product_details/data/models/product_response.dart';
 import 'package:auvnet_store/features/product_details/presentation/widgets/product_details_image_slider.dart';
@@ -22,30 +23,6 @@ class ProductDetailsBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                //Favorite Button
- BlocBuilder<CartCubit, CartState>(
-                  builder: (context, state) {
-                    return CustomAddToCartButton(
-                      size: 25,
-                      
-                      onTap: () async {
-                        await context.read<CartCubit>().manageCart(
-                              productId: productDetailsResponse.id.toString(),
-                              title: productDetailsResponse.title ,
-                              image: productDetailsResponse.images.first ,
-                              price: productDetailsResponse.price.toString(),
-                              categoryName: productDetailsResponse.category.name ,
-                            );
-                      },
-                    );
-                  },
-                ),
-              ],
-            ),
-            SizedBox(height: 10.h),
             //Image
             ProductDetailsImageSlider(
               imageList: productDetailsResponse.images,
