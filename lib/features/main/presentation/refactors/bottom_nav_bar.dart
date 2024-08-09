@@ -54,17 +54,7 @@ class MainBottomNavBar extends StatelessWidget {
                                           .selectedNavBarIcons(NavBarEnum.home);
                                     },
                                   ),
-                                  //Categories Screen
-                                  IconTapNavBar(
-                                    icon: AppImages.categoriesTab,
-                                    isSelected: cubit.navBarEnum ==
-                                        NavBarEnum.catgeories,
-                                    onTap: () {
-                                      cubit.selectedNavBarIcons(
-                                        NavBarEnum.catgeories,
-                                      );
-                                    },
-                                  ),
+                                 
                                   //Cart Screen
                                   IconTapNavBar(
                                     icon: AppImages.carShop,
