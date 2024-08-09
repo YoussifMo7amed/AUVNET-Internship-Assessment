@@ -3,6 +3,7 @@ import 'package:auvnet_store/core/common/widgets/text_app.dart';
 import 'package:auvnet_store/core/extensions/context_extension.dart';
 import 'package:auvnet_store/core/extensions/string_exetension.dart';
 import 'package:auvnet_store/core/routes/routers.dart';
+import 'package:auvnet_store/core/toast/show_toast.dart';
 import 'package:auvnet_store/features/cart/presentation/cubit/add_to_cart/cart_cubit.dart';
 import 'package:auvnet_store/features/cart/presentation/widgets/add_to_cart/order_summary.dart';
 import 'package:flutter/material.dart';
@@ -52,13 +53,21 @@ class CartBody extends StatelessWidget {
                       title: item.title,
                       price: double.parse(item.price),
                       onRemove: () {
-                        context.read<CartCubit>().manageCart(
+                        context
+                            .read<CartCubit>()
+                            .manageCart(
                               productId: item.id,
                               title: item.title,
                               image: item.image,
                               price: item.price,
                               categoryName: item.categoryName,
-                            );
+                            )
+                            .then(
+                          (value) {
+                            ShowToast.showToastSuccessTop(
+                                message: 'Item removed successfully');
+                          },
+                        );
                       },
                       quantity: 1,
                     );

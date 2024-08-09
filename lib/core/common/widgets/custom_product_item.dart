@@ -5,6 +5,7 @@ import 'package:auvnet_store/core/extensions/context_extension.dart';
 import 'package:auvnet_store/core/extensions/string_exetension.dart';
 import 'package:auvnet_store/core/routes/routers.dart';
 import 'package:auvnet_store/core/styles/fonts/font_wieght_helper.dart';
+import 'package:auvnet_store/core/toast/show_toast.dart';
 import 'package:auvnet_store/features/cart/presentation/cubit/add_to_cart/cart_cubit.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -48,15 +49,22 @@ class CustomProductItem extends StatelessWidget {
                   builder: (context, state) {
                     return CustomAddToCartButton(
                       size: 25,
-                     
                       onTap: () async {
-                        await context.read<CartCubit>().manageCart(
+                        await context
+                            .read<CartCubit>()
+                            .manageCart(
                               productId: productId.toString(),
                               title: title,
                               image: imageUrl,
                               price: price.toString(),
                               categoryName: categoryName,
-                            );
+                            )
+                            .then(
+                          (value) {
+                            ShowToast.showToastSuccessTop(
+                                message: 'Added To Cart');
+                          },
+                        );
                       },
                     );
                   },
