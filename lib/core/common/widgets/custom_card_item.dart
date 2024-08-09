@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
-
 class CustomCartItem extends StatelessWidget {
   const CustomCartItem({
     required this.imageUrl,
@@ -50,7 +49,7 @@ class CustomCartItem extends StatelessWidget {
                     fontSize: 16.sp,
                     fontWeight: FontWeightHelper.bold,
                   ),
-                  maxLines: 1,
+                  maxLines: 1, // Ensures title fits within one line
                 ),
                 SizedBox(height: 5.h),
                 TextApp(
@@ -61,14 +60,13 @@ class CustomCartItem extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 5.h),
-               
               ],
             ),
           ),
           IconButton(
             icon: const Icon(Icons.remove_circle_outline),
             color: context.color.textColor,
-            onPressed: onRemove,
+            onPressed: onRemove, // Calls the provided callback when pressed
           ),
         ],
       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
+// Widget for loading shimmer effect
 class LoadingShimmer extends StatelessWidget {
   const LoadingShimmer({
     super.key,
@@ -8,6 +9,7 @@ class LoadingShimmer extends StatelessWidget {
     this.width,
     this.borderRadius,
   });
+
   final double? height;
   final double? width;
   final double? borderRadius;
@@ -24,7 +26,7 @@ class LoadingShimmer extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.grey.withOpacity(0.3),
           borderRadius: BorderRadius.all(
-            Radius.circular(borderRadius ?? 14),
+            Radius.circular(borderRadius ?? 14), // Radius of the container
           ),
         ),
       ),
