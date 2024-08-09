@@ -37,7 +37,7 @@ class MainBottomNavBar extends StatelessWidget {
                         width: 300.w,
                         child: Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20.w),
-                     child: BlocBuilder<MainCubit, MainState>(
+                          child: BlocBuilder<MainCubit, MainState>(
                             builder: (context, state) {
                               final cubit = context.read<MainCubit>();
                               return Row(
@@ -54,25 +54,15 @@ class MainBottomNavBar extends StatelessWidget {
                                           .selectedNavBarIcons(NavBarEnum.home);
                                     },
                                   ),
-                                  //Categories Screen
+                                 
+                                  //Cart Screen
                                   IconTapNavBar(
-                                    icon: AppImages.categoriesTab,
-                                    isSelected: cubit.navBarEnum ==
-                                        NavBarEnum.catgeories,
+                                    icon: AppImages.carShop,
+                                    isSelected:
+                                        cubit.navBarEnum == NavBarEnum.cart,
                                     onTap: () {
                                       cubit.selectedNavBarIcons(
-                                        NavBarEnum.catgeories,
-                                      );
-                                    },
-                                  ),
-                                  //Favourites Screen
-                                  IconTapNavBar(
-                                    icon: AppImages.favouritesTab,
-                                    isSelected: cubit.navBarEnum ==
-                                        NavBarEnum.favorites,
-                                    onTap: () {
-                                      cubit.selectedNavBarIcons(
-                                        NavBarEnum.favorites,
+                                        NavBarEnum.cart,
                                       );
                                     },
                                   ),

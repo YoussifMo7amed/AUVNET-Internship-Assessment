@@ -1,8 +1,7 @@
 import 'package:auvnet_store/core/di/injection_container.dart';
 import 'package:auvnet_store/core/enums/nav_bar_enum.dart';
 import 'package:auvnet_store/core/extensions/context_extension.dart';
-import 'package:auvnet_store/features/categories/categories_screen.dart';
-import 'package:auvnet_store/features/favorites/favorites_screen.dart';
+import 'package:auvnet_store/features/cart/presentation/screens/cart_screen.dart';
 import 'package:auvnet_store/features/home/presentation/screen/home_screen.dart';
 import 'package:auvnet_store/features/main/presentation/cubit/cubit/main_cubit.dart';
 import 'package:auvnet_store/features/main/presentation/refactors/bottom_nav_bar.dart';
@@ -15,7 +14,7 @@ class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
 
   @override
- Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => sl<MainCubit>(),
       child: Scaffold(
@@ -34,10 +33,8 @@ class MainScreen extends StatelessWidget {
                 child: BlocBuilder<MainCubit, MainState>(
                   builder: (context, state) {
                     final cubit = context.read<MainCubit>();
-                    if (cubit.navBarEnum == NavBarEnum.catgeories) {
-                      return const CatgeoriesScreen();
-                    } else if (cubit.navBarEnum == NavBarEnum.favorites) {
-                      return const FavoritesScreen();
+                   if (cubit.navBarEnum == NavBarEnum.cart) {
+                      return const CartScreen();
                     } else if (cubit.navBarEnum == NavBarEnum.profile) {
                       return const ProfileScreen();
                     }

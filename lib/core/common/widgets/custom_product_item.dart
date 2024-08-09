@@ -1,12 +1,14 @@
+import 'package:auvnet_store/core/common/widgets/custom_add_to_cart_button.dart';
 import 'package:auvnet_store/core/common/widgets/custom_container_linear.dart';
-import 'package:auvnet_store/core/common/widgets/custom_favorite_button.dart';
 import 'package:auvnet_store/core/common/widgets/text_app.dart';
 import 'package:auvnet_store/core/extensions/context_extension.dart';
 import 'package:auvnet_store/core/extensions/string_exetension.dart';
 import 'package:auvnet_store/core/routes/routers.dart';
 import 'package:auvnet_store/core/styles/fonts/font_wieght_helper.dart';
+import 'package:auvnet_store/features/cart/presentation/cubit/add_to_cart/cart_cubit.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomProductItem extends StatelessWidget {
@@ -42,8 +44,22 @@ class CustomProductItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 //Favorite Button
-                CustomFavoriteButton(
-                  size: 30.h,
+                BlocBuilder<CartCubit, CartState>(
+                  builder: (context, state) {
+                    return CustomAddToCartButton(
+                      size: 25,
+                     
+                      onTap: () async {
+                        await context.read<CartCubit>().manageCart(
+                              productId: productId.toString(),
+                              title: title,
+                              image: imageUrl,
+                              price: price.toString(),
+                              categoryName: categoryName,
+                            );
+                      },
+                    );
+                  },
                 ),
               ],
             ),
