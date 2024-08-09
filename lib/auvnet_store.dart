@@ -7,6 +7,7 @@ import 'package:auvnet_store/core/routes/routers.dart';
 import 'package:auvnet_store/core/service/shared_pref/pref_keys.dart';
 import 'package:auvnet_store/core/service/shared_pref/shared_pref.dart';
 import 'package:auvnet_store/core/theme/app_theme.dart';
+import 'package:auvnet_store/features/cart/presentation/cubit/cart/cart_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,11 +21,19 @@ class AuvnetStoreApp extends StatelessWidget {
         valueListenable: ConnectivityController.instance.isConnected,
         builder: (_, value, __) {
           if (value) {
-            return BlocProvider(
-              create: (context) => sl<AppCubit>()
-                ..changeAppThemeMode(
-                  sharedMode: SharedPref().getBoolean(PrefKeys.themeMode),
-                ),
+            return MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => sl<CartCubit>(),
+              ),
+              BlocProvider(
+                create: (context) => sl<AppCubit>()
+                  ..changeAppThemeMode(
+                    sharedMode: SharedPref().getBoolean(PrefKeys.themeMode),
+                  )
+                  
+              ),
+            ],
               child: ScreenUtilInit(
                 designSize: const Size(375, 812),
                 minTextAdapt: true,

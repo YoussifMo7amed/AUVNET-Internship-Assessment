@@ -80,7 +80,7 @@ class HomeBody extends StatelessWidget {
             ),
           ),
 
-          //Products          //Products
+          //Products
 
           SliverToBoxAdapter(
             child: BlocBuilder<GetProductsBloc, GetProductsState>(

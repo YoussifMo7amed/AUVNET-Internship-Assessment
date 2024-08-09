@@ -1,8 +1,8 @@
 import 'package:auvnet_store/core/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 
-class CustomFavoriteButton extends StatelessWidget {
-  const CustomFavoriteButton({required this.size, super.key});
+class CustomAddToCartButton extends StatelessWidget {
+  const CustomAddToCartButton({required this.size, super.key});
 
   final double size;
 
@@ -12,7 +12,7 @@ class CustomFavoriteButton extends StatelessWidget {
       onPressed: () {},
       padding: EdgeInsets.zero,
       icon: Icon(
-        Icons.favorite_outline,
+        Icons.add_circle_outline_sharp,
         color: context.color.textColor,
         size: size,
       ),

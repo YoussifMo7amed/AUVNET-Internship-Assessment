@@ -1,4 +1,4 @@
-import 'package:auvnet_store/core/common/widgets/custom_favorite_button.dart';
+import 'package:auvnet_store/core/common/widgets/custom_add_to_cart_button.dart';
 import 'package:auvnet_store/core/common/widgets/text_app.dart';
 import 'package:auvnet_store/core/extensions/context_extension.dart';
 import 'package:auvnet_store/core/styles/fonts/font_wieght_helper.dart';
@@ -25,7 +25,7 @@ class ProductDetailsBody extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 //Favorite Button
-                CustomFavoriteButton(size: 35),
+                CustomAddToCartButton(size: 35),
               ],
             ),
             SizedBox(height: 10.h),
