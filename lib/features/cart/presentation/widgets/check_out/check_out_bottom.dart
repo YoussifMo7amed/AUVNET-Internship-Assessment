@@ -1,6 +1,5 @@
 import 'package:auvnet_store/core/enums/payment_enum.dart';
 import 'package:auvnet_store/core/extensions/context_extension.dart';
-import 'package:auvnet_store/core/extensions/string_exetension.dart';
 import 'package:auvnet_store/core/toast/show_toast.dart';
 import 'package:auvnet_store/features/cart/data/models/order_model.dart';
 import 'package:auvnet_store/features/cart/presentation/cubit/add_to_cart/cart_cubit.dart';

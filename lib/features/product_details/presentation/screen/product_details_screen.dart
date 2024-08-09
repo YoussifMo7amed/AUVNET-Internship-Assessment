@@ -2,7 +2,6 @@ import 'package:auvnet_store/core/common/widgets/custom_app_bar.dart';
 import 'package:auvnet_store/core/di/injection_container.dart';
 import 'package:auvnet_store/core/extensions/context_extension.dart';
 import 'package:auvnet_store/core/extensions/string_exetension.dart';
-import 'package:auvnet_store/features/home/data/models/products_response.dart';
 import 'package:auvnet_store/features/product_details/presentation/bloc/product_details/product_details_bloc.dart';
 import 'package:auvnet_store/features/product_details/presentation/bloc/product_details/product_details_event.dart';
 import 'package:auvnet_store/features/product_details/presentation/bloc/product_details/product_details_state.dart';

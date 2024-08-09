@@ -6,7 +6,8 @@ import 'package:auvnet_store/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+// A form widget that contains the email and password fields for the login process.
+// A form widget that contains the email and password fields for the login process.
 class LoginTextForm extends StatefulWidget {
   const LoginTextForm({super.key});
 
@@ -15,26 +16,34 @@ class LoginTextForm extends StatefulWidget {
 }
 
 class _LoginTextFormState extends State<LoginTextForm> {
+  // A flag to toggle the visibility of the password field
   bool isShowPassword = true;
- late AuthBloc _bloc;
+  
+  // Reference to the AuthBloc instance
+  late AuthBloc _bloc;
+
   @override
   void initState() {
     super.initState();
     _bloc = context.read<AuthBloc>();
   }
-    @override
+
+  @override
   void dispose() {
+    // Dispose controllers to free up resources
     _bloc.emailController.dispose();
     _bloc.passwordController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Form(
+      // Assign the form key for validation
       key: _bloc.formKey,
       child: Column(
         children: [
-          //Email
+          // Email input field with validation
           CustomFadeInRight(
             duration: 200,
             child: CustomTextField(
@@ -50,7 +59,8 @@ class _LoginTextFormState extends State<LoginTextForm> {
             ),
           ),
           SizedBox(height: 25.h),
-          //Password
+
+          // Password input field with validation and toggle for visibility
           CustomFadeInRight(
             duration: 200,
             child: CustomTextField(
@@ -66,6 +76,7 @@ class _LoginTextFormState extends State<LoginTextForm> {
               },
               suffixIcon: IconButton(
                 onPressed: () {
+                  // Toggle password visibility
                   setState(() {
                     isShowPassword = !isShowPassword;
                   });

@@ -9,6 +9,8 @@ class GetCategoriesBloc extends Bloc<GetCategoriesEvent, GetCategoriesState> {
     on<FetchCategoriesEvent>(_getAllCategories);
   }
   final HomeRepo _repo;
+
+  // Get Categories
   FutureOr<void> _getAllCategories(
     FetchCategoriesEvent event,
     Emitter<GetCategoriesState> emit,

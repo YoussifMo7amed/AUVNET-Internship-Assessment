@@ -1,13 +1,10 @@
-import 'package:auvnet_store/core/common/widgets/custom_add_to_cart_button.dart';
 import 'package:auvnet_store/core/common/widgets/text_app.dart';
 import 'package:auvnet_store/core/extensions/context_extension.dart';
 import 'package:auvnet_store/core/styles/fonts/font_wieght_helper.dart';
-import 'package:auvnet_store/core/toast/show_toast.dart';
-import 'package:auvnet_store/features/cart/presentation/cubit/add_to_cart/cart_cubit.dart';
+
 import 'package:auvnet_store/features/product_details/data/models/product_response.dart';
 import 'package:auvnet_store/features/product_details/presentation/widgets/product_details_image_slider.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProductDetailsBody extends StatelessWidget {
@@ -31,7 +28,7 @@ class ProductDetailsBody extends StatelessWidget {
             SizedBox(height: 30.h),
             //Title
             TextApp(
-              text: productDetailsResponse.title ?? '',
+              text: productDetailsResponse.title ,
               theme: context.textStyle.copyWith(
                 fontSize: 16.sp,
                 fontWeight: FontWeightHelper.bold,
@@ -40,7 +37,7 @@ class ProductDetailsBody extends StatelessWidget {
             SizedBox(height: 15.h),
             //description
             TextApp(
-              text: productDetailsResponse.description ?? '',
+              text: productDetailsResponse.description ,
               theme: context.textStyle.copyWith(
                 fontSize: 16.sp,
                 fontWeight: FontWeightHelper.regular,

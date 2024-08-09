@@ -9,35 +9,26 @@ abstract class AuthState extends Equatable {
 
 class Initial extends AuthState {
   const Initial();
-
-  @override
-  List<Object?> get props => [];
 }
 
-class LoadingState extends AuthState {
-  const LoadingState();
-
-  @override
-  List<Object?> get props => [];
+class AuthLoadingState extends AuthState {
+  const AuthLoadingState();
 }
 
-class SuccessState extends AuthState {
-  const SuccessState();
-
-  @override
-  List<Object?> get props => [];
+class AuthSuccessState extends AuthState {
+  const AuthSuccessState();
 }
 
-class ErrorState extends AuthState {
+class AuthErrorState extends AuthState {
   final String error;
 
-  const ErrorState({required this.error});
+  const AuthErrorState({required this.error});
 
   @override
   List<Object?> get props => [error];
 
-  ErrorState copyWith({String? error}) {
-    return ErrorState(
+  AuthErrorState copyWith({String? error}) {
+    return AuthErrorState(
       error: error ?? this.error,
     );
   }

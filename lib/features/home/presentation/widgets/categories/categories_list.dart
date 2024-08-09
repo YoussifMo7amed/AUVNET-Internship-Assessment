@@ -18,8 +18,8 @@ final List<CategoryResponse> categoreisList;
           itemCount: categoreisList.length,
           itemBuilder: (context, index) {
             return CategoryItem(
-              image: categoreisList[index].image ?? '',
-              title: categoreisList[index].name ?? '',
+              image: categoreisList[index].image ,
+              title: categoreisList[index].name ,
             );
           },
           separatorBuilder: (context, index) => SizedBox(width: 15.w),
