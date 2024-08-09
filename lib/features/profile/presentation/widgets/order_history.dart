@@ -1,8 +1,8 @@
 import 'package:auvnet_store/core/common/widgets/text_app.dart';
 import 'package:auvnet_store/core/extensions/context_extension.dart';
+import 'package:auvnet_store/core/routes/routers.dart';
 import 'package:auvnet_store/core/styles/fonts/font_wieght_helper.dart';
 import 'package:auvnet_store/core/styles/images/app_images.dart';
-import 'package:auvnet_store/core/utils/app_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -31,7 +31,7 @@ class OrderHistory extends StatelessWidget {
         //Build Version
         IconButton(
           onPressed: () {
-            
+            context.pushName(Routes.orderHistory);
           },
           icon: Icon(
             Icons.arrow_forward_ios,

@@ -10,4 +10,5 @@ class CartState with _$CartState {
     required double deliveryCharges,
     required double total,
   }) = _TotalsUpdated;
+  const factory CartState.clearCart() = ClearCart;
 }

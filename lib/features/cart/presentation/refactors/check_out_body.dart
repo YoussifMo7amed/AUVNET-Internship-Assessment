@@ -5,6 +5,7 @@ import 'package:auvnet_store/core/extensions/context_extension.dart';
 import 'package:auvnet_store/core/styles/fonts/font_wieght_helper.dart';
 import 'package:auvnet_store/features/cart/presentation/cubit/add_to_cart/cart_cubit.dart';
 import 'package:auvnet_store/features/cart/presentation/widgets/add_to_cart/order_summary.dart';
+import 'package:auvnet_store/features/cart/presentation/widgets/check_out/check_out_bottom.dart';
 import 'package:auvnet_store/features/cart/presentation/widgets/check_out/check_out_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,7 +19,7 @@ class CheckoutBody extends StatefulWidget {
 }
 
 class CheckoutBodyState extends State<CheckoutBody> {
-  final _addressController = TextEditingController();
+  final addressController = TextEditingController();
   PaymentMethod selectedPaymentMethod = PaymentMethod.creditCard;
 
   @override
@@ -60,7 +61,7 @@ class CheckoutBodyState extends State<CheckoutBody> {
                       total: cubit.total,
                     ),
                     TextFormField(
-                      controller: _addressController,
+                      controller: addressController,
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Enter your address',
@@ -96,7 +97,11 @@ class CheckoutBodyState extends State<CheckoutBody> {
                       },
                     ),
                     const SizedBox(height: 16),
-                   
+                     CheckOutBottom(
+                      addressController: addressController,
+                      selectedPaymentMethod: selectedPaymentMethod,
+
+                    ),
                   ],
                 ),
               );

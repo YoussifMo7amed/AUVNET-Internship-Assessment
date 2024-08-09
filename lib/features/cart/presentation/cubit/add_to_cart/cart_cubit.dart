@@ -39,6 +39,7 @@ class CartCubit extends Cubit<CartState> {
               categoryName: categoryName,
             ),
           );
+    
     }
     emit(const CartState.addAndRemoveFromCart());
     calculateTotals();
@@ -53,7 +54,6 @@ class CartCubit extends Cubit<CartState> {
     for (var item in cartList) {
       subtotal += double.parse(item.price);
     }
-
     total = subtotal + deliveryCharges;
 
     emit(CartState.totalsUpdated(
@@ -62,5 +62,12 @@ class CartCubit extends Cubit<CartState> {
       deliveryCharges: deliveryCharges,
       total: total,
     ));
+  }
+
+  void clearCart() {
+    HiveDatabase().cartBox!.clear();
+    calculateTotals();
+
+    emit(const CartState.clearCart());
   }
 }

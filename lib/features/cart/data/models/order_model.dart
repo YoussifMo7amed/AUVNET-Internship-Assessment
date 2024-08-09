@@ -6,10 +6,10 @@ part 'order_model.g.dart'; // This file will be generated
 class OrderModel extends HiveObject {
   @HiveField(0)
   final String address;
-  
+
   @HiveField(1)
   final List<OrderItem> items;
-  
+
   @HiveField(2)
   final double subtotal;
 
@@ -40,8 +40,11 @@ class OrderItem extends HiveObject {
   @HiveField(1)
   final double price;
 
+
+
   OrderItem({
     required this.id,
     required this.price,
+
   });
 }

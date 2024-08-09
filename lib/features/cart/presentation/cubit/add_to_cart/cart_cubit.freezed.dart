@@ -23,6 +23,7 @@ mixin _$CartState {
     required TResult Function(int numberOfItems, double subtotal,
             double deliveryCharges, double total)
         totalsUpdated,
+    required TResult Function() clearCart,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +33,7 @@ mixin _$CartState {
     TResult? Function(int numberOfItems, double subtotal,
             double deliveryCharges, double total)?
         totalsUpdated,
+    TResult? Function()? clearCart,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +43,7 @@ mixin _$CartState {
     TResult Function(int numberOfItems, double subtotal, double deliveryCharges,
             double total)?
         totalsUpdated,
+    TResult Function()? clearCart,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -49,6 +52,7 @@ mixin _$CartState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_AddAndRemoveFromCart value) addAndRemoveFromCart,
     required TResult Function(_TotalsUpdated value) totalsUpdated,
+    required TResult Function(ClearCart value) clearCart,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,6 +60,7 @@ mixin _$CartState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_AddAndRemoveFromCart value)? addAndRemoveFromCart,
     TResult? Function(_TotalsUpdated value)? totalsUpdated,
+    TResult? Function(ClearCart value)? clearCart,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$CartState {
     TResult Function(_Initial value)? initial,
     TResult Function(_AddAndRemoveFromCart value)? addAndRemoveFromCart,
     TResult Function(_TotalsUpdated value)? totalsUpdated,
+    TResult Function(ClearCart value)? clearCart,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,6 +134,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(int numberOfItems, double subtotal,
             double deliveryCharges, double total)
         totalsUpdated,
+    required TResult Function() clearCart,
   }) {
     return initial();
   }
@@ -140,6 +147,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(int numberOfItems, double subtotal,
             double deliveryCharges, double total)?
         totalsUpdated,
+    TResult? Function()? clearCart,
   }) {
     return initial?.call();
   }
@@ -152,6 +160,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(int numberOfItems, double subtotal, double deliveryCharges,
             double total)?
         totalsUpdated,
+    TResult Function()? clearCart,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -166,6 +175,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_AddAndRemoveFromCart value) addAndRemoveFromCart,
     required TResult Function(_TotalsUpdated value) totalsUpdated,
+    required TResult Function(ClearCart value) clearCart,
   }) {
     return initial(this);
   }
@@ -176,6 +186,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_AddAndRemoveFromCart value)? addAndRemoveFromCart,
     TResult? Function(_TotalsUpdated value)? totalsUpdated,
+    TResult? Function(ClearCart value)? clearCart,
   }) {
     return initial?.call(this);
   }
@@ -186,6 +197,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_AddAndRemoveFromCart value)? addAndRemoveFromCart,
     TResult Function(_TotalsUpdated value)? totalsUpdated,
+    TResult Function(ClearCart value)? clearCart,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -243,6 +255,7 @@ class _$AddAndRemoveFromCartImpl implements _AddAndRemoveFromCart {
     required TResult Function(int numberOfItems, double subtotal,
             double deliveryCharges, double total)
         totalsUpdated,
+    required TResult Function() clearCart,
   }) {
     return addAndRemoveFromCart();
   }
@@ -255,6 +268,7 @@ class _$AddAndRemoveFromCartImpl implements _AddAndRemoveFromCart {
     TResult? Function(int numberOfItems, double subtotal,
             double deliveryCharges, double total)?
         totalsUpdated,
+    TResult? Function()? clearCart,
   }) {
     return addAndRemoveFromCart?.call();
   }
@@ -267,6 +281,7 @@ class _$AddAndRemoveFromCartImpl implements _AddAndRemoveFromCart {
     TResult Function(int numberOfItems, double subtotal, double deliveryCharges,
             double total)?
         totalsUpdated,
+    TResult Function()? clearCart,
     required TResult orElse(),
   }) {
     if (addAndRemoveFromCart != null) {
@@ -281,6 +296,7 @@ class _$AddAndRemoveFromCartImpl implements _AddAndRemoveFromCart {
     required TResult Function(_Initial value) initial,
     required TResult Function(_AddAndRemoveFromCart value) addAndRemoveFromCart,
     required TResult Function(_TotalsUpdated value) totalsUpdated,
+    required TResult Function(ClearCart value) clearCart,
   }) {
     return addAndRemoveFromCart(this);
   }
@@ -291,6 +307,7 @@ class _$AddAndRemoveFromCartImpl implements _AddAndRemoveFromCart {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_AddAndRemoveFromCart value)? addAndRemoveFromCart,
     TResult? Function(_TotalsUpdated value)? totalsUpdated,
+    TResult? Function(ClearCart value)? clearCart,
   }) {
     return addAndRemoveFromCart?.call(this);
   }
@@ -301,6 +318,7 @@ class _$AddAndRemoveFromCartImpl implements _AddAndRemoveFromCart {
     TResult Function(_Initial value)? initial,
     TResult Function(_AddAndRemoveFromCart value)? addAndRemoveFromCart,
     TResult Function(_TotalsUpdated value)? totalsUpdated,
+    TResult Function(ClearCart value)? clearCart,
     required TResult orElse(),
   }) {
     if (addAndRemoveFromCart != null) {
@@ -419,6 +437,7 @@ class _$TotalsUpdatedImpl implements _TotalsUpdated {
     required TResult Function(int numberOfItems, double subtotal,
             double deliveryCharges, double total)
         totalsUpdated,
+    required TResult Function() clearCart,
   }) {
     return totalsUpdated(numberOfItems, subtotal, deliveryCharges, total);
   }
@@ -431,6 +450,7 @@ class _$TotalsUpdatedImpl implements _TotalsUpdated {
     TResult? Function(int numberOfItems, double subtotal,
             double deliveryCharges, double total)?
         totalsUpdated,
+    TResult? Function()? clearCart,
   }) {
     return totalsUpdated?.call(numberOfItems, subtotal, deliveryCharges, total);
   }
@@ -443,6 +463,7 @@ class _$TotalsUpdatedImpl implements _TotalsUpdated {
     TResult Function(int numberOfItems, double subtotal, double deliveryCharges,
             double total)?
         totalsUpdated,
+    TResult Function()? clearCart,
     required TResult orElse(),
   }) {
     if (totalsUpdated != null) {
@@ -457,6 +478,7 @@ class _$TotalsUpdatedImpl implements _TotalsUpdated {
     required TResult Function(_Initial value) initial,
     required TResult Function(_AddAndRemoveFromCart value) addAndRemoveFromCart,
     required TResult Function(_TotalsUpdated value) totalsUpdated,
+    required TResult Function(ClearCart value) clearCart,
   }) {
     return totalsUpdated(this);
   }
@@ -467,6 +489,7 @@ class _$TotalsUpdatedImpl implements _TotalsUpdated {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_AddAndRemoveFromCart value)? addAndRemoveFromCart,
     TResult? Function(_TotalsUpdated value)? totalsUpdated,
+    TResult? Function(ClearCart value)? clearCart,
   }) {
     return totalsUpdated?.call(this);
   }
@@ -477,6 +500,7 @@ class _$TotalsUpdatedImpl implements _TotalsUpdated {
     TResult Function(_Initial value)? initial,
     TResult Function(_AddAndRemoveFromCart value)? addAndRemoveFromCart,
     TResult Function(_TotalsUpdated value)? totalsUpdated,
+    TResult Function(ClearCart value)? clearCart,
     required TResult orElse(),
   }) {
     if (totalsUpdated != null) {
@@ -500,4 +524,124 @@ abstract class _TotalsUpdated implements CartState {
   @JsonKey(ignore: true)
   _$$TotalsUpdatedImplCopyWith<_$TotalsUpdatedImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ClearCartImplCopyWith<$Res> {
+  factory _$$ClearCartImplCopyWith(
+          _$ClearCartImpl value, $Res Function(_$ClearCartImpl) then) =
+      __$$ClearCartImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ClearCartImplCopyWithImpl<$Res>
+    extends _$CartStateCopyWithImpl<$Res, _$ClearCartImpl>
+    implements _$$ClearCartImplCopyWith<$Res> {
+  __$$ClearCartImplCopyWithImpl(
+      _$ClearCartImpl _value, $Res Function(_$ClearCartImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ClearCartImpl implements ClearCart {
+  const _$ClearCartImpl();
+
+  @override
+  String toString() {
+    return 'CartState.clearCart()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ClearCartImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() addAndRemoveFromCart,
+    required TResult Function(int numberOfItems, double subtotal,
+            double deliveryCharges, double total)
+        totalsUpdated,
+    required TResult Function() clearCart,
+  }) {
+    return clearCart();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? addAndRemoveFromCart,
+    TResult? Function(int numberOfItems, double subtotal,
+            double deliveryCharges, double total)?
+        totalsUpdated,
+    TResult? Function()? clearCart,
+  }) {
+    return clearCart?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? addAndRemoveFromCart,
+    TResult Function(int numberOfItems, double subtotal, double deliveryCharges,
+            double total)?
+        totalsUpdated,
+    TResult Function()? clearCart,
+    required TResult orElse(),
+  }) {
+    if (clearCart != null) {
+      return clearCart();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AddAndRemoveFromCart value) addAndRemoveFromCart,
+    required TResult Function(_TotalsUpdated value) totalsUpdated,
+    required TResult Function(ClearCart value) clearCart,
+  }) {
+    return clearCart(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AddAndRemoveFromCart value)? addAndRemoveFromCart,
+    TResult? Function(_TotalsUpdated value)? totalsUpdated,
+    TResult? Function(ClearCart value)? clearCart,
+  }) {
+    return clearCart?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AddAndRemoveFromCart value)? addAndRemoveFromCart,
+    TResult Function(_TotalsUpdated value)? totalsUpdated,
+    TResult Function(ClearCart value)? clearCart,
+    required TResult orElse(),
+  }) {
+    if (clearCart != null) {
+      return clearCart(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ClearCart implements CartState {
+  const factory ClearCart() = _$ClearCartImpl;
 }

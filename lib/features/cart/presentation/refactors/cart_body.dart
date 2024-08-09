@@ -55,7 +55,7 @@ class CartBody extends StatelessWidget {
                         context.read<CartCubit>().manageCart(
                               productId: item.id,
                               title: item.title,
-                              image: item.image.imageProductFormate(),
+                              image: item.image,
                               price: item.price,
                               categoryName: item.categoryName,
                             );

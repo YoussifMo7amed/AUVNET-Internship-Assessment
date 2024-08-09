@@ -95,6 +95,8 @@ dependencies:
     # Lightweight NoSQL database for local data storage
   hive_flutter: ^1.1.0
     # Integration of Hive with Flutter, including widgets to listen to Hive changes
+  intl: ^0.19.0
+    # Provides internationalization support for Dart applications  
 
 dev_dependencies:
   flutter_test:

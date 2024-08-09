@@ -3,6 +3,7 @@ import 'package:auvnet_store/core/extensions/context_extension.dart';
 import 'package:auvnet_store/core/extensions/string_exetension.dart';
 import 'package:auvnet_store/core/styles/fonts/font_wieght_helper.dart';
 import 'package:auvnet_store/features/cart/data/models/cart_model.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -19,11 +20,16 @@ class CheckOutItem extends StatelessWidget {
     return ListTile(
       contentPadding:
           const EdgeInsets.symmetric(vertical: 8),
-      leading: Image.network(
-          item.image.imageProductFormate(),
-          width: 50,
-          height: 50,
-          fit: BoxFit.cover),
+      leading:  CachedNetworkImage(
+                  height: 200.h,
+                  width: 120.w,
+                  imageUrl: item.image.imageProductFormate(),
+                  errorWidget: (context, url, error) => const Icon(
+                    Icons.error,
+                    color: Colors.red,
+                    size: 70,
+                  ),
+                ),
       title: TextApp(
         text: item.title,
         theme: context.textStyle.copyWith(
