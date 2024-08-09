@@ -10,7 +10,7 @@ class GetProductsBloc extends Bloc<GetProductsEvent, GetProductsState> {
   }
   final HomeRepo _repo;
 
-  bool isProductListSmallerThan10 = false;
+  // Get Products
 
   FutureOr<void> _getProducts(
     FetchProductsEvent event,

@@ -11,7 +11,7 @@ class GetBannersBloc extends Bloc<GetBannersEvent, GetBannersState> {
   }
 
   final HomeRepo _repo;
-
+  // Get Banners
   FutureOr<void> _getBanners(
     FetchBannersEvent event,
     Emitter<GetBannersState> emit,

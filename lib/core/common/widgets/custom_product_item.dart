@@ -47,7 +47,7 @@ class CustomProductItem extends StatelessWidget {
                 //Favorite Button
                 BlocBuilder<CartCubit, CartState>(
                   builder: (context, state) {
-                    return CustomAddToCartButton(
+                    return CustomAddToCartIcon(
                       size: 25,
                       onTap: () async {
                         await context

@@ -10,12 +10,14 @@ import 'package:auvnet_store/features/profile/presentation/screen/profile_screen
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+// The main screen widget that displays the app's main content.
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
+      // Providing the MainCubit to manage the state of the MainScreen.
       create: (context) => sl<MainCubit>(),
       child: Scaffold(
         appBar: const MainAppBar(),
@@ -23,25 +25,33 @@ class MainScreen extends StatelessWidget {
           constraints: const BoxConstraints.expand(),
           decoration: BoxDecoration(
             image: DecorationImage(
+              // Background image for the main screen.
               image: AssetImage(context.assets.homeBg!),
               fit: BoxFit.fill,
             ),
           ),
           child: Column(
             children: [
+              // The main content of the screen, which changes based on the selected navigation bar icon.
               Expanded(
                 child: BlocBuilder<MainCubit, MainState>(
                   builder: (context, state) {
                     final cubit = context.read<MainCubit>();
-                   if (cubit.navBarEnum == NavBarEnum.cart) {
+
+                    // Display the CartScreen if the cart icon is selected.
+                    if (cubit.navBarEnum == NavBarEnum.cart) {
                       return const CartScreen();
-                    } else if (cubit.navBarEnum == NavBarEnum.profile) {
+                    } 
+                    // Display the ProfileScreen if the profile icon is selected.
+                    else if (cubit.navBarEnum == NavBarEnum.profile) {
                       return const ProfileScreen();
                     }
+                    // Default to displaying the HomeScreen if the home icon is selected.
                     return const HomeScreen();
                   },
                 ),
               ),
+              // The bottom navigation bar at the bottom of the screen.
               const MainBottomNavBar(),
             ],
           ),

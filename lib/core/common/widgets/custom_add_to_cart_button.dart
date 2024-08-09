@@ -1,8 +1,8 @@
 import 'package:auvnet_store/core/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 
-class CustomAddToCartButton extends StatelessWidget {
-  const CustomAddToCartButton(
+class CustomAddToCartIcon extends StatelessWidget {
+  const CustomAddToCartIcon(
       {required this.size, super.key, required this.onTap});
 
   final double size;

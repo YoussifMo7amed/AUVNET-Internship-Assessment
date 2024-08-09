@@ -21,7 +21,6 @@ class AppRouter {
     final args = settings.arguments;
     switch (settings.name) {
       case Routes.login:
-        // Route for the login screen
         return BaseRoute(
           page: BlocProvider(
             create: (context) => sl<AuthBloc>(),
@@ -29,7 +28,6 @@ class AppRouter {
           ),
         );
       case Routes.signUp:
-        // Route for the login screen
         return BaseRoute(
           page: MultiBlocProvider(
             providers: [
@@ -42,34 +40,31 @@ class AppRouter {
                 ),
               ),
             ],
-            child: const SignUpScreen()),
+            child: const SignUpScreen(),
+          ),
         );
-
-       case Routes.mainScreen:
+      case Routes.mainScreen:
         return BaseRoute(
           page: BlocProvider(
             create: (context) => sl<MainCubit>(),
             child: const MainScreen(),
           ),
         );
-          case Routes.productDetails:
+      case Routes.productDetails:
         return BaseRoute(
           page: ProductDetailsScreen(
             productId: args! as int,
           ),
         );
-        case Routes.checkout:
+      case Routes.checkout:
         return BaseRoute(
-          page:  const CheckoutScreen(),
+          page: const CheckoutScreen(),
         );
-
-        case Routes.orderHistory:
-        return BaseRoute( 
+      case Routes.orderHistory:
+        return BaseRoute(
           page: const HistoryOrderScreen(),
         );
-
       default:
-        // Default route for unhandled routes, shows an under construction screen
         return BaseRoute(page: const UnderBuildScreen());
     }
   }

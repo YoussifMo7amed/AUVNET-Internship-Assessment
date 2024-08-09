@@ -8,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CustomDialog {
   const CustomDialog._();
 
+  // Shows a dialog with two buttons
   static void twoButtonDialog({
     required BuildContext context,
     required String textBody,
@@ -23,8 +24,8 @@ class CustomDialog {
         backgroundColor: Colors.grey,
         title: Padding(
           padding: EdgeInsets.only(
-            top: 30.h,
-            bottom: 20.h,
+            top: 30.h, // Padding from the top
+            bottom: 20.h, // Padding from the bottom
           ),
           child: Center(
             child: TextApp(
@@ -42,7 +43,7 @@ class CustomDialog {
         actions: [
           CustomButton(
             backgroundColor: Colors.red,
-            onPressed: onPressed,
+            onPressed: onPressed, // Action for the first button
             text: textButton1,
             width: 320.w,
             height: 45.h,
@@ -53,7 +54,7 @@ class CustomDialog {
           SizedBox(height: 10.h, width: 1.w),
           CustomButton(
             onPressed: () {
-              context.pop();
+              context.pop(); // Action for the second button
             },
             text: textButton2,
             width: 320.w,

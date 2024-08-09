@@ -17,15 +17,17 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   final AuthRepos _repo;
 
+  // Text controllers for form fields
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController nameController = TextEditingController();
 
+  // Key for form validation
   final formKey = GlobalKey<FormState>();
 
-//Login
+  // Handle login event
   FutureOr<void> _login(LoginEvent event, Emitter<AuthState> emit) async {
-    emit(const LoadingState());
+    emit(const AuthLoadingState()); // Emit loading state
 
     final result = await _repo.login(
       LoginRequestBody(
@@ -36,41 +38,36 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     await result.when(
       success: (loginData) async {
-        // user token
-        final token = loginData.accessToken ;
-        // save token in shared preferences
-        await SharedPref().setString(PrefKeys.accessToken, token);
-        // get user role
-      
-        emit( const SuccessState( ));
+        final token = loginData.accessToken; // Save user token
+        await SharedPref().setString(
+            PrefKeys.accessToken, token); // Save token to Shared Preferences
+        emit(const AuthSuccessState()); // Emit success state
       },
       failure: (error) {
-        emit(ErrorState(error: error));
+        emit(AuthErrorState(error: error)); // Emit error state with message
       },
     );
   }
 
-  // signup and login to take user token
-  FutureOr<void> _signUp(
-    SignUpEvent event,
-    Emitter<AuthState> emit,
-  ) async {
-    emit(const LoadingState());
+  // Handle sign-up event
+  FutureOr<void> _signUp(SignUpEvent event, Emitter<AuthState> emit) async {
+    emit(const AuthLoadingState()); // Emit loading state
     final result = await _repo.signUp(
       SignupRequestBody(
         email: emailController.text.trim(),
         password: passwordController.text,
-        avatar: 'https://api.lorem.space/image/face?w=150&h=220',
+        avatar:
+            'https://api.lorem.space/image/face?w=150&h=220', // Default avatar
         name: nameController.text.trim(),
       ),
     );
 
     result.when(
       success: (signupData) {
-        add(const LoginEvent());
+        add(const LoginEvent()); // Trigger login after successful sign-up
       },
       failure: (error) {
-        emit(ErrorState(error: error));
+        emit(AuthErrorState(error: error)); // Emit error state with message
       },
     );
   }

@@ -28,11 +28,11 @@ class ProductsList extends StatelessWidget {
         ),
         itemBuilder: (context, index) {
           return  CustomProductItem(
-              price: productList[index].price ?? 0,
-            categoryName: productList[index].category!.name ?? '',
-            title: productList[index].title ?? '',
-            imageUrl: productList[index].images!.first,
-         productId: productList[index].id ?? 0,             
+              price: productList[index].price ,
+            categoryName: productList[index].category.name ,
+            title: productList[index].title ,
+            imageUrl: productList[index].images.first,
+         productId: productList[index].id              
           );
         },
       ),

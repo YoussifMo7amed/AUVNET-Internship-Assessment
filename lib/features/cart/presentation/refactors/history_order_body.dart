@@ -1,9 +1,6 @@
 import 'package:auvnet_store/core/common/widgets/text_app.dart';
 import 'package:auvnet_store/core/extensions/context_extension.dart';
-import 'package:auvnet_store/core/extensions/string_exetension.dart';
 import 'package:auvnet_store/core/styles/fonts/font_wieght_helper.dart';
-import 'package:auvnet_store/features/cart/data/models/cart_model.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive/hive.dart';
@@ -16,8 +13,6 @@ class HistoryOrderBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final orderBox = Hive.box<OrderModel>('order_box'); // Fetch the order box
     final orders = orderBox.values.toList(); // Convert the box to a list
-    final cartBox = Hive.box<CartModel>('cart_box');
-    final cartItems = cartBox.values.toList();
 
     return ListView.builder(
         itemCount: orders.length,
@@ -26,7 +21,7 @@ class HistoryOrderBody extends StatelessWidget {
           // Provide default values for potential null fields
           final orderId = order.key.toString(); // Convert Hive key to String
           final orderAddress =
-              order.address ?? 'Unknown Address'; // Fallback date
+              order.address ; // Fallback date
          
           return Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),

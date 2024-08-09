@@ -2,7 +2,6 @@ import 'package:auvnet_store/core/common/widgets/custom_app_bar.dart';
 import 'package:auvnet_store/core/di/injection_container.dart';
 import 'package:auvnet_store/core/extensions/context_extension.dart';
 import 'package:auvnet_store/core/extensions/string_exetension.dart';
-import 'package:auvnet_store/features/home/data/models/products_response.dart';
 import 'package:auvnet_store/features/product_details/presentation/bloc/product_details/product_details_bloc.dart';
 import 'package:auvnet_store/features/product_details/presentation/bloc/product_details/product_details_event.dart';
 import 'package:auvnet_store/features/product_details/presentation/bloc/product_details/product_details_state.dart';
@@ -26,46 +25,48 @@ class ProductDetailsScreen extends StatelessWidget {
         ),
       child: BlocBuilder<ProductDetailsBloc, ProductDetailsState>(
         builder: (context, state) {
-          if( state is ProductDetailsLoadingState) {
-             return Scaffold(
-                body: Center(
-                  child: CircularProgressIndicator(
-                    color: context.color.textColor,
-                  ),
-                ),
-              );
-          }else if(state is ProductDetailsSuccessState) {
+          if (state is ProductDetailsLoadingState) {
             return Scaffold(
-                appBar: CustomAppBar(
-                  title: state.productDetailsResponse.title.convertLongString(),
+              body: Center(
+                child: CircularProgressIndicator(
+                  color: context.color.textColor,
                 ),
-                bottomNavigationBar:
-                    AddToCartButton(price: double.parse(state.productDetailsResponse.price.toString())),
-                body: Stack(
-                  children: [
-                    CustomPaint(
-                      size: Size(
-                        MediaQuery.of(context).size.width,
-                        MediaQuery.of(context).size.height,
-                      ),
-                      painter: DetailsCustomPainter(
-                        gradient: LinearGradient(
-                          colors: [
-                            context.color.bluePinkLight!,
-                            context.color.bluePinkDark!,
-                          ],
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                        ),
+              ),
+            );
+          } else if (state is ProductDetailsSuccessState) {
+            return Scaffold(
+              appBar: CustomAppBar(
+                title: state.productDetailsResponse.title.convertLongString(),
+              ),
+              bottomNavigationBar: AddToCartButton(
+                  price: double.parse(
+                      state.productDetailsResponse.price.toString()),
+                  productDetailsResponse: state.productDetailsResponse),
+              body: Stack(
+                children: [
+                  CustomPaint(
+                    size: Size(
+                      MediaQuery.of(context).size.width,
+                      MediaQuery.of(context).size.height,
+                    ),
+                    painter: DetailsCustomPainter(
+                      gradient: LinearGradient(
+                        colors: [
+                          context.color.bluePinkLight!,
+                          context.color.bluePinkDark!,
+                        ],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
                       ),
                     ),
-                    ProductDetailsBody(
-                      productDetailsResponse: state.productDetailsResponse,
-                    ),
-                  ],
-                ),
-              );
-          }else if(state is ProductDetailsErrorState) {
+                  ),
+                  ProductDetailsBody(
+                    productDetailsResponse: state.productDetailsResponse,
+                  ),
+                ],
+              ),
+            );
+          } else if (state is ProductDetailsErrorState) {
             return Scaffold(
               body: Center(
                 child: Text(state.error),
@@ -73,7 +74,6 @@ class ProductDetailsScreen extends StatelessWidget {
             );
           }
           return const SizedBox.shrink();
-         
         },
       ),
     );

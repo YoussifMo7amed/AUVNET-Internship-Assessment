@@ -62,10 +62,12 @@ class CheckoutBodyState extends State<CheckoutBody> {
                     ),
                     TextFormField(
                       controller: addressController,
+                      style: TextStyle(
+                        color: context.color.textColor,
+                      ),
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Enter your address',
-                        
                       ),
                     ),
                     const SizedBox(height: 16),
@@ -97,10 +99,9 @@ class CheckoutBodyState extends State<CheckoutBody> {
                       },
                     ),
                     const SizedBox(height: 16),
-                     CheckOutBottom(
+                    CheckOutBottom(
                       addressController: addressController,
                       selectedPaymentMethod: selectedPaymentMethod,
-
                     ),
                   ],
                 ),
@@ -112,8 +113,4 @@ class CheckoutBodyState extends State<CheckoutBody> {
       ),
     );
   }
-
-
 }
-
-

@@ -1,7 +1,5 @@
 import 'package:auvnet_store/core/common/loading/empty_page.dart';
 import 'package:auvnet_store/core/common/loading/loading_shimmer.dart';
-import 'package:auvnet_store/core/common/widgets/custom_button.dart';
-import 'package:auvnet_store/core/extensions/context_extension.dart';
 import 'package:auvnet_store/features/home/presentation/bloc/get_banners/get_banners_bloc.dart';
 import 'package:auvnet_store/features/home/presentation/bloc/get_banners/get_banners_event.dart';
 import 'package:auvnet_store/features/home/presentation/bloc/get_banners/get_banners_state.dart';

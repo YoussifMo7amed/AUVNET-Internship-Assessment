@@ -16,56 +16,58 @@ import 'package:auvnet_store/features/profile/presentation/bloc/bloc/profile_blo
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
-final sl = GetIt.instance;
+final sl = GetIt.instance; // Singleton instance of GetIt for service locator
 
 Future<void> setupInjector() async {
-  await _initCore();
-  await _initAuth();
-  await _initMain();
-  await _initProfile();
-  await _initHome();
-  await _initProductDetails();
-  await _initCart();
+  await _initCore();          // Initialize core services
+  await _initAuth();          // Initialize authentication services
+  await _initMain();          // Initialize main feature services
+  await _initProfile();       // Initialize profile services
+  await _initHome();          // Initialize home feature services
+  await _initProductDetails(); // Initialize product details feature services
+  await _initCart();          // Initialize cart feature services
 }
 
 Future<void> _initCore() async {
-  final dio = DioFactory.getDio();
-  final navigatorKey = GlobalKey<NavigatorState>();
+  final dio = DioFactory.getDio(); // Get Dio instance for network requests
+  final navigatorKey = GlobalKey<NavigatorState>(); // Key for navigation
+
   sl
-    ..registerFactory(AppCubit.new)
-    ..registerLazySingleton<ApiService>(() => ApiService(dio))
-    ..registerSingleton<GlobalKey<NavigatorState>>(navigatorKey);
+    ..registerFactory(AppCubit.new) // Register AppCubit factory
+    ..registerLazySingleton<ApiService>(() => ApiService(dio)) // Register ApiService as a singleton
+    ..registerSingleton<GlobalKey<NavigatorState>>(navigatorKey); // Register navigator key
 }
 
 Future<void> _initAuth() async {
   sl
-    ..registerFactory(() => AuthBloc(sl()))
-    ..registerLazySingleton(() => AuthRepos(sl()));
+    ..registerFactory(() => AuthBloc(sl())) // Register AuthBloc factory with dependencies
+    ..registerLazySingleton(() => AuthRepos(sl())); // Register AuthRepos as a singleton
 }
 
 Future<void> _initMain() async {
-  sl.registerFactory(MainCubit.new);
+  sl.registerFactory(MainCubit.new); // Register MainCubit factory
 }
 
 Future<void> _initProfile() async {
   sl
-    ..registerFactory(() => ProfileBloc(sl()))
-    ..registerLazySingleton(() => ProfileRepo(sl()));
+    ..registerFactory(() => ProfileBloc(sl())) // Register ProfileBloc factory with dependencies
+    ..registerLazySingleton(() => ProfileRepo(sl())); // Register ProfileRepo as a singleton
 }
 
 Future<void> _initHome() async {
   sl
-    ..registerFactory(() => GetBannersBloc(sl()))
-    ..registerFactory(() => GetProductsBloc(sl()))
-    ..registerFactory(() => GetCategoriesBloc(sl()))
-    ..registerLazySingleton(() => HomeRepo(sl()));
+    ..registerFactory(() => GetBannersBloc(sl())) // Register GetBannersBloc factory with dependencies
+    ..registerFactory(() => GetProductsBloc(sl())) // Register GetProductsBloc factory with dependencies
+    ..registerFactory(() => GetCategoriesBloc(sl())) // Register GetCategoriesBloc factory with dependencies
+    ..registerLazySingleton(() => HomeRepo(sl())); // Register HomeRepo as a singleton
 }
 
 Future<void> _initProductDetails() async {
   sl
-    ..registerFactory(() => ProductDetailsBloc(sl()))
-    ..registerLazySingleton(() => ProductDetailsRepo(sl()));
+    ..registerFactory(() => ProductDetailsBloc(sl())) // Register ProductDetailsBloc factory with dependencies
+    ..registerLazySingleton(() => ProductDetailsRepo(sl())); // Register ProductDetailsRepo as a singleton
 }
+
 Future<void> _initCart() async {
-  sl.registerFactory(CartCubit.new);
+  sl.registerFactory(CartCubit.new); // Register CartCubit factory
 }

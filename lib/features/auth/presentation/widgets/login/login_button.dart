@@ -11,7 +11,7 @@ import 'package:auvnet_store/features/auth/presentation/bloc/auth_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+// A button widget that handles the login process using BLoC and displays the appropriate UI based on the current state.
 class LoginButton extends StatelessWidget {
   const LoginButton({super.key});
 
@@ -21,34 +21,39 @@ class LoginButton extends StatelessWidget {
       duration: 600,
       child: BlocConsumer<AuthBloc, AuthState>(
         listener: (context, state) {
-          if (state is SuccessState) {
+          // Listen to state changes and display a success toast when the login is successful
+          if (state is AuthSuccessState) {
             ShowToast.showToastSuccessTop(
-           
               message: 'Logged in successfully',
             );
 
+            // Navigate to the main screen after successful login
             context.pushNamedAndRemoveUntil(Routes.mainScreen);
-          } else if (state is ErrorState) {
+          } 
+          // Display an error toast if there is a login error
+          else if (state is AuthErrorState) {
             ShowToast.showToastErrorTop(
-           
               message: state.error,
             );
           }
         },
         builder: (context, state) {
-          if (state is LoadingState) {
+          // Display a loading indicator while the login request is being processed
+          if (state is AuthLoadingState) {
             return CustomLinearButton(
-              onPressed: () {},
+              onPressed: () {}, // Disable the button while loading
               height: 50.h,
               width: MediaQuery.of(context).size.width,
               child: const CircularProgressIndicator(
                 color: Colors.white,
               ),
             );
-          } else {
+          } 
+          // Display the login button when not loading
+          else {
             return CustomLinearButton(
               onPressed: () {
-                _validateThenDoLogin(context);
+                _validateThenDoLogin(context); // Trigger login process
               },
               height: 50.h,
               width: MediaQuery.of(context).size.width,
@@ -66,6 +71,7 @@ class LoginButton extends StatelessWidget {
     );
   }
 
+  // Validate the form and trigger the login event if valid
   void _validateThenDoLogin(BuildContext context) {
     if (context.read<AuthBloc>().formKey.currentState!.validate()) {
       context.read<AuthBloc>().add(const LoginEvent());

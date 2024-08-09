@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
+// Custom AppBar widget
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
     required this.title,
@@ -28,10 +29,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         children: [
           CustomLinearButton(
             onPressed: () {
-              context.pop();
+              context.pop(); // Navigate back on press
             },
             child: Center(
-              child: SvgPicture.asset(AppImages.backButton),
+              child: SvgPicture.asset(AppImages.backButton), // Back button icon
             ),
           ),
           Flexible(
@@ -42,15 +43,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 fontWeight: FontWeightHelper.bold,
                 color: context.color.textColor,
               ),
-              // textOverflow: TextOverflow.ellipsis,
             ),
           ),
-          const Text(''),
+          const Text(''), // Placeholder to maintain alignment
         ],
       ),
     );
   }
 
   @override
-  Size get preferredSize => Size(double.infinity, 70.h);
+  Size get preferredSize => Size(double.infinity, 70.h); // AppBar height
 }

@@ -1,6 +1,7 @@
 import 'package:auvnet_store/core/styles/images/app_images.dart';
 import 'package:flutter/material.dart';
 
+// Displays a screen indicating that the page is under construction
 class UnderBuildScreen extends StatelessWidget {
   const UnderBuildScreen({super.key});
 
