@@ -5,6 +5,7 @@ import 'package:auvnet_store/features/profile/presentation/bloc/bloc/profile_sta
 import 'package:auvnet_store/features/profile/presentation/widgets/build_version.dart';
 import 'package:auvnet_store/features/profile/presentation/widgets/dark_mode_change.dart';
 import 'package:auvnet_store/features/profile/presentation/widgets/logout_widget.dart';
+import 'package:auvnet_store/features/profile/presentation/widgets/order_history.dart';
 import 'package:auvnet_store/features/profile/presentation/widgets/user_profile_info.dart';
 import 'package:auvnet_store/features/profile/presentation/widgets/user_profile_shimmer.dart';
 import 'package:flutter/material.dart';
@@ -58,6 +59,11 @@ class ProfileBody extends StatelessWidget {
               child: DarkModeChange(),
             ),
 
+            SizedBox(height: 20.h),
+            const CustomFadeInRight(
+              duration: 400,
+              child: OrderHistory(),
+            ),
             SizedBox(height: 20.h),
             // Build Version
             const CustomFadeInRight(
