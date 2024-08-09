@@ -8,7 +8,12 @@ part 'cart_cubit.freezed.dart';
 
 class CartCubit extends Cubit<CartState> {
   CartCubit() : super(const CartState.initial());
-   Future<void> manageFavourites({
+
+  final double deliveryCharges = 5.0; // Adjust this value as needed
+  double subtotal = 0.0;
+  double total = 0.0;
+
+  Future<void> manageCart({
     required String productId,
     required String title,
     required String image,
@@ -23,7 +28,7 @@ class CartCubit extends Cubit<CartState> {
         .indexWhere((e) => e.id == productId);
 
     if (existingIndex >= 0) {
-      await HiveDatabase().cartBox!.delete(existingIndex);
+      await HiveDatabase().cartBox!.deleteAt(existingIndex);
     } else {
       await HiveDatabase().cartBox!.add(
             CartModel(
@@ -36,11 +41,26 @@ class CartCubit extends Cubit<CartState> {
           );
     }
     emit(const CartState.addAndRemoveFromCart());
+    calculateTotals();
   }
-
-  
 
   List<CartModel> get cartList {
     return HiveDatabase().cartBox!.values.toList();
+  }
+
+  void calculateTotals() {
+    subtotal = 0.0; // Reset subtotal each time you calculate
+    for (var item in cartList) {
+      subtotal += double.parse(item.price);
+    }
+
+    total = subtotal + deliveryCharges;
+
+    emit(CartState.totalsUpdated(
+      numberOfItems: cartList.length,
+      subtotal: subtotal,
+      deliveryCharges: deliveryCharges,
+      total: total,
+    ));
   }
 }

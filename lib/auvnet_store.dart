@@ -7,7 +7,7 @@ import 'package:auvnet_store/core/routes/routers.dart';
 import 'package:auvnet_store/core/service/shared_pref/pref_keys.dart';
 import 'package:auvnet_store/core/service/shared_pref/shared_pref.dart';
 import 'package:auvnet_store/core/theme/app_theme.dart';
-import 'package:auvnet_store/features/cart/presentation/cubit/cart/cart_cubit.dart';
+import 'package:auvnet_store/features/cart/presentation/cubit/add_to_cart/cart_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

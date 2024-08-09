@@ -11,8 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class MainAppBar extends StatelessWidget
-    implements PreferredSizeWidget {
+class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   const MainAppBar({super.key});
 
   @override
@@ -51,12 +50,30 @@ class MainAppBar extends StatelessWidget
                 )
               ],
             );
+          } else if (cubit.navBarEnum == NavBarEnum.cart) {
+            return CustomFadeInRight(
+              duration: 800,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextApp(
+                    text: 'Your Cart',
+                    theme: context.textStyle.copyWith(
+                      fontSize: 25.sp,
+                      fontWeight: FontWeightHelper.bold,
+                      color: context.color.textColor,
+                    ),
+                  ),
+                ],
+              ),
+            );
           }
           return const SizedBox.shrink();
         },
       ),
     );
   }
+
   @override
   Size get preferredSize => Size(double.infinity, 70.h);
 }

@@ -3,7 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'main_state.dart';
- part 'main_cubit.freezed.dart';
+part 'main_cubit.freezed.dart';
+
 class MainCubit extends Cubit<MainState> {
   MainCubit() : super(const MainState.initial());
 
@@ -14,8 +15,8 @@ class MainCubit extends Cubit<MainState> {
       navBarEnum = NavBarEnum.home;
     } else if (viewEnum == NavBarEnum.catgeories) {
       navBarEnum = NavBarEnum.catgeories;
-    } else if (viewEnum == NavBarEnum.favorites) {
-      navBarEnum = NavBarEnum.favorites;
+    } else if (viewEnum == NavBarEnum.cart) {
+      navBarEnum = NavBarEnum.cart;
     } else if (viewEnum == NavBarEnum.profile) {
       navBarEnum = NavBarEnum.profile;
     }

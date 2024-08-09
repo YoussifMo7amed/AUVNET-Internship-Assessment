@@ -37,7 +37,7 @@ class MainBottomNavBar extends StatelessWidget {
                         width: 300.w,
                         child: Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20.w),
-                     child: BlocBuilder<MainCubit, MainState>(
+                          child: BlocBuilder<MainCubit, MainState>(
                             builder: (context, state) {
                               final cubit = context.read<MainCubit>();
                               return Row(
@@ -65,14 +65,14 @@ class MainBottomNavBar extends StatelessWidget {
                                       );
                                     },
                                   ),
-                                  //Favourites Screen
+                                  //Cart Screen
                                   IconTapNavBar(
-                                    icon: AppImages.favouritesTab,
-                                    isSelected: cubit.navBarEnum ==
-                                        NavBarEnum.favorites,
+                                    icon: AppImages.carShop,
+                                    isSelected:
+                                        cubit.navBarEnum == NavBarEnum.cart,
                                     onTap: () {
                                       cubit.selectedNavBarIcons(
-                                        NavBarEnum.favorites,
+                                        NavBarEnum.cart,
                                       );
                                     },
                                   ),
