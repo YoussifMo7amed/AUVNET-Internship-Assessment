@@ -29,7 +29,7 @@ class BuildSummaryRow extends StatelessWidget {
           style: TextStyle(
             fontSize: isTotal ? 18.sp : 16.sp,
             fontWeight: isTotal ? FontWeight.bold : FontWeight.normal,
-            color: isTotal ? Colors.green : context.color.mainColor,
+            color: isTotal ? Colors.green : context.color.textColor,
           ),
         ),
       ],

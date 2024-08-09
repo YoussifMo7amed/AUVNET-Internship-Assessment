@@ -5,7 +5,7 @@ import 'package:auvnet_store/core/routes/routers.dart';
 import 'package:auvnet_store/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:auvnet_store/features/auth/presentation/screens/login_screen.dart';
 import 'package:auvnet_store/features/auth/presentation/screens/sign_up_screen.dart';
-import 'package:auvnet_store/features/cart/presentation/widgets/check_out_page.dart';
+import 'package:auvnet_store/features/cart/presentation/screens/checkout_screen.dart';
 import 'package:auvnet_store/features/main/presentation/cubit/cubit/main_cubit.dart';
 import 'package:auvnet_store/features/main/presentation/screen/main_screen.dart';
 import 'package:auvnet_store/features/product_details/presentation/screen/product_details_screen.dart';
@@ -59,7 +59,7 @@ class AppRouter {
         );
         case Routes.checkout:
         return BaseRoute(
-          page:  CheckoutPage(),
+          page:  CheckoutScreen(),
         );
 
       default:

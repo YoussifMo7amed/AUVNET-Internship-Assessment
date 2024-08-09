@@ -19,6 +19,7 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
     final cubit = context.read<MainCubit>();
     return AppBar(
       automaticallyImplyLeading: false,
+      surfaceTintColor: Colors.transparent,
       backgroundColor: context.color.mainColor,
       elevation: 0,
       title: BlocBuilder(

@@ -1,4 +1,4 @@
-import 'package:auvnet_store/features/cart/presentation/widgets/build_summary_row.dart';
+import 'package:auvnet_store/features/cart/presentation/widgets/add_to_cart/build_summary_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

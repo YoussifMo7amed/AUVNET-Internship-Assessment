@@ -1,9 +1,10 @@
 import 'package:auvnet_store/core/common/widgets/custom_card_item.dart';
 import 'package:auvnet_store/core/common/widgets/text_app.dart';
 import 'package:auvnet_store/core/extensions/context_extension.dart';
+import 'package:auvnet_store/core/extensions/string_exetension.dart';
 import 'package:auvnet_store/core/routes/routers.dart';
 import 'package:auvnet_store/features/cart/presentation/cubit/add_to_cart/cart_cubit.dart';
-import 'package:auvnet_store/features/cart/presentation/widgets/order_summary.dart';
+import 'package:auvnet_store/features/cart/presentation/widgets/add_to_cart/order_summary.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -47,14 +48,14 @@ class CartBody extends StatelessWidget {
                   itemBuilder: (context, index) {
                     final item = context.read<CartCubit>().cartList[index];
                     return CustomCartItem(
-                      imageUrl: item.image,
+                      imageUrl: item.image.imageProductFormate(),
                       title: item.title,
                       price: double.parse(item.price),
                       onRemove: () {
                         context.read<CartCubit>().manageCart(
                               productId: item.id,
                               title: item.title,
-                              image: item.image,
+                              image: item.image.imageProductFormate(),
                               price: item.price,
                               categoryName: item.categoryName,
                             );
@@ -79,7 +80,7 @@ class CartBody extends StatelessWidget {
                   onPressed: () {
                     // Handle checkout
                     context.read<CartCubit>().calculateTotals();
-                    // context.pushName(Routes.checkout);
+                    context.pushName(Routes.checkout);
                   },
                   child: const Text('Proceed to Checkout'),
                 ),
