@@ -9,6 +9,7 @@ import 'package:auvnet_store/features/home/presentation/bloc/get_categories/get_
 import 'package:auvnet_store/features/home/presentation/bloc/get_categories/get_categories_event.dart';
 import 'package:auvnet_store/features/home/presentation/bloc/get_categories/get_categories_state.dart';
 import 'package:auvnet_store/features/home/presentation/bloc/get_products/get_products_bloc.dart';
+import 'package:auvnet_store/features/home/presentation/bloc/get_products/get_products_event.dart';
 import 'package:auvnet_store/features/home/presentation/bloc/get_products/get_products_state.dart';
 import 'package:auvnet_store/features/home/presentation/widgets/banners/banner_sliders.dart';
 import 'package:auvnet_store/features/home/presentation/widgets/categories/categories_list.dart';
@@ -30,6 +31,7 @@ class HomeBody extends StatelessWidget {
       onRefresh: () async {
         context.read<GetBannersBloc>().add(FetchBannersEvent());
         context.read<GetCategoriesBloc>().add(FetchCategoriesEvent());
+        context.read<GetProductsBloc>().add(FetchProductsEvent());
       },
       child: CustomScrollView(
         controller: scrollCOntroller,
