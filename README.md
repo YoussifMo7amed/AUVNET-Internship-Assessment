@@ -5,18 +5,6 @@ Welcome to the AUVNET Internship Assessment project! This repository contains a 
 Project Overview
 This e-commerce application features:
 
-⦿ User Authentication: Sign up and login functionality.
-
-⦿ Product Browsing: View and browse products.
-
-⦿ Product Details: Detailed view of products.
-
-⦿ Shopping Cart: Add products to the cart and proceed to checkout.
-
-⦿ Order History: View and manage past orders.
-
-⦿ Profile Management: Update user profile, change theme mode, view order history, and log out.
-
 The app integrates with Platzi Fake Store API for backend simulation. State management is handled using the BLoC pattern with Equatable for complex state and Cubit with Freezed for simpler  state management tasks like theme mode changes. Local storage is managed with Hive for cart, checkout, and order history, although caching was not implemented due to time constraints.
 
 Project Features
